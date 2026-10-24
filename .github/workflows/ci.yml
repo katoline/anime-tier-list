@@ -4,13 +4,20 @@ on:
   pull_request:
   push:
     branches: [main]
+  merge_group:
 
 permissions:
   contents: read
 
+# 同じ PR に続けて push したら、古い実行は止める
+concurrency:
+  group: ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v5
         with:
@@ -26,3 +33,40 @@ jobs:
       - run: npm test
       - run: npx astro check
       - run: npm run build
+
+  # ローカルの Workers 環境（D1・R2 はローカル）で、作成 → ログイン → 保存 → 公開 → 削除までをブラウザで通す
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: ローカル環境の準備
+        run: |
+          cp .dev.vars.example .dev.vars
+          npm run db:migrate:local
+          npm run build
+      - name: プレビューを起動
+        run: |
+          npx astro preview --port 4321 > preview.log 2>&1 &
+          for i in $(seq 1 60); do curl -sf -o /dev/null http://localhost:4321/ && exit 0; sleep 1; done
+          cat preview.log; exit 1
+      - name: ブラウザでの通し確認
+        run: node tests/e2e/smoke.mjs
+        env:
+          BASE_URL: http://localhost:4321
+          SCREENSHOT_DIR: e2e-screenshots
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-screenshots
+          path: |
+            e2e-screenshots
+            preview.log
+          if-no-files-found: ignore
+          retention-days: 7
