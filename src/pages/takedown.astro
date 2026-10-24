@@ -1,0 +1,48 @@
+---
+import Base from '../layouts/Base.astro';
+import { TURNSTILE_SITE_KEY } from '../lib/config';
+
+export const prerender = true;
+---
+<Base title="掲載・削除のご依頼" description="作品情報・画像の掲載に関するご依頼とお問い合わせ。">
+  <Fragment slot="head">
+    {TURNSTILE_SITE_KEY && <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
+  </Fragment>
+  <div class="container" style="max-width:640px">
+    <h1>掲載・削除のご依頼</h1>
+    <p>作品の権利者・関係者の方で、作品名や画像の掲載の取りやめ・修正をご希望の場合は、以下のフォームからご連絡ください。確認のうえ速やかに対応します。不適切なティア表の報告もこちらで受け付けています。</p>
+    <form id="takedown" class="card stack">
+      <div class="field"><label for="name">お名前・団体名</label><input id="name" name="name" type="text" required maxlength="100" /></div>
+      <div class="field"><label for="email">メールアドレス</label><input id="email" name="email" type="email" required /></div>
+      <div class="field"><label for="url">対象ページの URL（任意）</label><input id="url" name="url" type="text" maxlength="500" /></div>
+      <div class="field"><label for="reason">ご依頼の内容</label><textarea id="reason" name="reason" required maxlength="3000"></textarea></div>
+      <input type="hidden" name="animeId" id="animeId" />
+      {TURNSTILE_SITE_KEY && <div class="cf-turnstile" data-sitekey={TURNSTILE_SITE_KEY} data-language="ja"></div>}
+      <div class="row"><button class="btn btn-primary" type="submit">送信する</button><span id="msg" class="small" role="status"></span></div>
+    </form>
+  </div>
+  <script>
+    const form = document.getElementById('takedown') as HTMLFormElement;
+    const msg = document.getElementById('msg')!;
+    const anime = new URLSearchParams(location.search).get('anime');
+    if (anime) (document.getElementById('animeId') as HTMLInputElement).value = anime;
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const fd = new FormData(form);
+      const res = await fetch('/api/takedown', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...Object.fromEntries(fd), turnstileToken: fd.get('cf-turnstile-response') }),
+      }).catch(() => null);
+      const json = (res ? await res.json().catch(() => ({})) : {}) as { error?: string };
+      if (res?.ok) {
+        form.reset();
+        msg.className = 'small';
+        msg.textContent = '送信しました。ご連絡ありがとうございます。';
+      } else {
+        msg.className = 'small error';
+        msg.textContent = json.error ?? '送信できませんでした';
+      }
+    });
+  </script>
+</Base>
