@@ -34,6 +34,19 @@ export const DEFAULT_TIERS: Omit<Tier, 'items'>[] = [
   { id: 'b', label: 'B', color: '#ffdf7f' },
   { id: 'c', label: 'C', color: '#ffff7f' },
   { id: 'd', label: 'D', color: '#bfff7f' },
+  { id: 'e', label: 'E', color: '#7fffff' },
+  { id: 'f', label: 'F', color: '#7fbfff' },
+];
+
+/** 標準ティア（S〜F）それぞれの意味。エディタと説明ページに表示する */
+export const TIER_MEANINGS: { label: string; color: string; title: string; text: string }[] = [
+  { label: 'S', color: '#ff7f7f', title: '神作・今期の覇権', text: '今期でいちばん。誰かに勧めたい、何度でも見返したい作品' },
+  { label: 'A', color: '#ffbf7f', title: '名作', text: '毎週の放送が待ち遠しい。期待以上に面白い' },
+  { label: 'B', color: '#ffdf7f', title: '良作', text: '安定して面白く、最後まで見たい' },
+  { label: 'C', color: '#ffff7f', title: '普通', text: '悪くはない。時間があれば見る' },
+  { label: 'D', color: '#bfff7f', title: 'いまいち', text: '惜しいところが目立つ。好みが分かれそう' },
+  { label: 'E', color: '#7fffff', title: '微妙', text: '見続けるか迷っている。途中で止まりそう' },
+  { label: 'F', color: '#7fbfff', title: '合わなかった', text: '自分には合わず、視聴をやめた' },
 ];
 
 export const TIER_COLOR_PRESETS = ['#ff7f7f', '#ffbf7f', '#ffdf7f', '#ffff7f', '#bfff7f', '#7fff7f', '#7fffff', '#7fbfff', '#bf7fff', '#ff7fbf', '#cfcfcf'];
@@ -121,8 +134,9 @@ export function rankedCount(data: TierListData): number {
   return data.tiers.reduce((n, t) => n + t.items.length, 0);
 }
 
-/** 集計の 5 段階（S〜D）。カスタムしたティア数に関係なく、相対位置で振り分ける */
-export const STAT_BUCKETS = ['S', 'A', 'B', 'C', 'D'] as const;
+/** 集計の 7 段階（S〜F）。カスタムしたティア数に関係なく、相対位置で振り分ける */
+export const STAT_BUCKETS = ['S', 'A', 'B', 'C', 'D', 'E', 'F'] as const;
+export const STAT_BUCKET_COLORS = TIER_MEANINGS.map((m) => m.color);
 
 export function scoreForTier(index: number, tierCount: number): number {
   if (tierCount <= 1) return 100;
@@ -130,11 +144,9 @@ export function scoreForTier(index: number, tierCount: number): number {
 }
 
 export function bucketForScore(score: number): number {
-  if (score >= 87.5) return 0;
-  if (score >= 62.5) return 1;
-  if (score >= 37.5) return 2;
-  if (score >= 12.5) return 3;
-  return 4;
+  // 100 点を S、0 点を F として、いちばん近い段に振り分ける
+  const last = STAT_BUCKETS.length - 1;
+  return Math.min(last, Math.max(0, Math.round(((100 - score) * last) / 100)));
 }
 
 export interface Contribution {
@@ -169,7 +181,7 @@ export function statDeltas(before: Map<string, Contribution> | null, after: Map<
     const b = before?.get(id);
     const a = after?.get(id);
     if (b && a && b.score === a.score) continue;
-    const bucketDeltas = [0, 0, 0, 0, 0];
+    const bucketDeltas: number[] = STAT_BUCKETS.map(() => 0);
     if (b) bucketDeltas[b.bucket] -= 1;
     if (a) bucketDeltas[a.bucket] += 1;
     out.push({

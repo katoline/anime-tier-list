@@ -5,7 +5,7 @@ import { ImageResponse, loadGoogleFont } from 'workers-og';
 import { cardColors } from './colors';
 import { IMAGE_MODE, SITE_NAME } from './config';
 import type { Anime } from './anime-types';
-import type { TierListData } from './tierlist';
+import { TIER_MEANINGS, type TierListData } from './tierlist';
 
 const W = 1200;
 const H = 630;
@@ -47,8 +47,8 @@ export async function renderTierListOg(opts: {
   data: TierListData;
   anime: (id: string) => Anime | undefined;
 }): Promise<ArrayBuffer> {
-  const tiers = opts.data.tiers.filter((t) => t.items.length > 0).slice(0, 6);
-  const shown = tiers.length ? tiers : opts.data.tiers.slice(0, 5);
+  const tiers = opts.data.tiers.filter((t) => t.items.length > 0).slice(0, 7);
+  const shown = tiers.length ? tiers : opts.data.tiers.slice(0, 7);
   const headerH = 112;
   const footerH = 44;
   const rowH = Math.floor((H - headerH - footerH - 16) / Math.max(shown.length, 3));
@@ -102,11 +102,11 @@ export async function renderTierListOg(opts: {
 }
 
 export async function renderSiteOg(subtitle: string): Promise<ArrayBuffer> {
-  const colors = ['#ff7f7f', '#ffbf7f', '#ffdf7f', '#ffff7f', '#bfff7f'];
-  const labels = ['S', 'A', 'B', 'C', 'D'];
+  const colors = TIER_MEANINGS.map((m) => m.color);
+  const labels = TIER_MEANINGS.map((m) => m.label);
   const rows = labels
     .map(
-      (l, i) => `<div style="display:flex;height:56px;margin-bottom:6px">
+      (l, i) => `<div style="display:flex;height:52px;margin-bottom:6px">
         <div style="display:flex;align-items:center;justify-content:center;width:72px;background:${colors[i]};color:#1a1a22;font-size:30px">${l}</div>
         <div style="display:flex;flex:1;background:#23232d"></div></div>`,
     )

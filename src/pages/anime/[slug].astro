@@ -16,15 +16,15 @@ const seasonIds = seasonsOfAnime(anime.id);
 const mainSeason = getSeason(seasonIds[0])!;
 const mainRef = parseSeasonId(mainSeason.id)!;
 const { results: statRows } = await env.DB.prepare(
-  'SELECT season_id, score_sum, count, b0, b1, b2, b3, b4 FROM anime_stats WHERE anime_id = ? AND count > 0',
+  'SELECT season_id, score_sum, count, b0, b1, b2, b3, b4, b5, b6 FROM anime_stats WHERE anime_id = ? AND count > 0',
 )
   .bind(anime.id)
-  .all<{ season_id: string; score_sum: number; count: number; b0: number; b1: number; b2: number; b3: number; b4: number }>();
+  .all<{ season_id: string; score_sum: number; count: number; b0: number; b1: number; b2: number; b3: number; b4: number; b5: number; b6: number }>();
 const stats = statRows.map((r) => ({
   season: parseSeasonId(r.season_id)!,
   average: r.score_sum / r.count,
   count: r.count,
-  distribution: [r.b0, r.b1, r.b2, r.b3, r.b4],
+  distribution: [r.b0, r.b1, r.b2, r.b3, r.b4, r.b5, r.b6],
 }));
 Astro.response.headers.set('X-Edge-Cache', '1800');
 
@@ -77,7 +77,7 @@ const description = `${anime.title}（${label}）の作品情報と、みんな�
         <p class="muted">まだ公開ティア表での評価はありません。</p>
       ) : (
         <table class="stats-table">
-          <thead><tr><th>季節</th><th>分布（S〜D）</th><th class="num">平均</th><th class="num">票数</th></tr></thead>
+          <thead><tr><th>季節</th><th>分布（S〜F）</th><th class="num">平均</th><th class="num">票数</th></tr></thead>
           <tbody>
             {stats.map((s) => (
               <tr>

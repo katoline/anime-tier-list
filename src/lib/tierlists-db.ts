@@ -124,13 +124,14 @@ function statStatements(seasonId: string, tierListId: string, writeId: string, d
   // 同じティア表への同時保存で集計が二重に動かないようにするため。
   return deltas.map((d) =>
     env.DB.prepare(
-      `INSERT INTO anime_stats (season_id, anime_id, score_sum, count, b0, b1, b2, b3, b4, updated_at)
-       SELECT ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
+      `INSERT INTO anime_stats (season_id, anime_id, score_sum, count, b0, b1, b2, b3, b4, b5, b6, updated_at)
+       SELECT ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
         WHERE ? = (SELECT write_id FROM tier_lists WHERE id = ?) OR NOT EXISTS (SELECT 1 FROM tier_lists WHERE id = ?)
        ON CONFLICT(season_id, anime_id) DO UPDATE SET
          score_sum = score_sum + excluded.score_sum,
          count = count + excluded.count,
          b0 = b0 + excluded.b0, b1 = b1 + excluded.b1, b2 = b2 + excluded.b2, b3 = b3 + excluded.b3, b4 = b4 + excluded.b4,
+         b5 = b5 + excluded.b5, b6 = b6 + excluded.b6,
          updated_at = excluded.updated_at`,
     ).bind(
       seasonId,
@@ -204,16 +205,16 @@ export interface AnimeStat {
 
 export async function getSeasonStats(seasonId: string): Promise<AnimeStat[]> {
   const { results } = await env.DB.prepare(
-    'SELECT anime_id, score_sum, count, b0, b1, b2, b3, b4 FROM anime_stats WHERE season_id = ? AND count > 0',
+    'SELECT anime_id, score_sum, count, b0, b1, b2, b3, b4, b5, b6 FROM anime_stats WHERE season_id = ? AND count > 0',
   )
     .bind(seasonId)
-    .all<{ anime_id: string; score_sum: number; count: number; b0: number; b1: number; b2: number; b3: number; b4: number }>();
+    .all<{ anime_id: string; score_sum: number; count: number; b0: number; b1: number; b2: number; b3: number; b4: number; b5: number; b6: number }>();
   return results
     .map((r) => ({
       animeId: r.anime_id,
       average: Math.round((r.score_sum / r.count) * 10) / 10,
       count: r.count,
-      distribution: [r.b0, r.b1, r.b2, r.b3, r.b4],
+      distribution: [r.b0, r.b1, r.b2, r.b3, r.b4, r.b5, r.b6],
     }))
     .sort((a, b) => b.average - a.average || b.count - a.count);
 }

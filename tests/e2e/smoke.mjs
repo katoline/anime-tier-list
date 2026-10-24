@@ -47,7 +47,7 @@ for (let i = 0; i < 4; i++) {
   await dragTo(page.locator('.tray-items .ecard-wrap').first(), rows.nth(0).locator('.tier-items'));
 }
 await dragTo(page.locator('.tray-items .ecard-wrap').first(), rows.nth(1).locator('.tier-items'));
-await dragTo(page.locator('.tray-items .ecard-wrap').first(), rows.nth(4).locator('.tier-items'));
+await dragTo(page.locator('.tray-items .ecard-wrap').first(), rows.nth(6).locator('.tier-items'));
 assert((await rows.nth(0).locator('.ecard-wrap').count()) === 4, 'S に 4 作品をドラッグできる');
 assert((await rows.nth(1).locator('.ecard-wrap').count()) === 1, 'A に 1 作品をドラッグできる');
 
