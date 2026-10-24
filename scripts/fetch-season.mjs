@@ -12,8 +12,7 @@
 
 import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
-import { mkdir, readFile, writeFile, rm } from 'node:fs/promises';
-import { existsSync } from 'node:fs';
+import { mkdir, mkdtemp, readFile, writeFile, rm } from 'node:fs/promises';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { tmpdir } from 'node:os';
@@ -157,7 +156,9 @@ function createUploader(mode) {
   if (mode === 'local') {
     return {
       async put(key, body, contentType) {
-        const file = join(tmpdir(), `anime-tier-${process.pid}-${Math.random().toString(36).slice(2)}`);
+        // 自分だけが読み書きできる一時ディレクトリを作って、その中に書く
+        const dir = await mkdtemp(join(tmpdir(), 'anime-tier-'));
+        const file = join(dir, 'object');
         await writeFile(file, body);
         try {
           execFileSync(
@@ -166,7 +167,7 @@ function createUploader(mode) {
             { cwd: ROOT, stdio: 'ignore' },
           );
         } finally {
-          await rm(file, { force: true });
+          await rm(dir, { recursive: true, force: true });
         }
       },
       // ローカルでは存在確認をしない（毎回 wrangler を起動すると遅いため）
@@ -194,13 +195,22 @@ async function processImage(sourceUrl, animeId, upload) {
   return { key, source: sourceUrl };
 }
 
+async function readJsonIfExists(file) {
+  try {
+    return JSON.parse(await readFile(file, 'utf8'));
+  } catch (err) {
+    if (err.code === 'ENOENT') return null;
+    throw err;
+  }
+}
+
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   const ref = args.season ? parseSeasonId(args.season) : seasonOf(new Date());
   if (!ref) throw new Error(`季節 ID の形式が不正です: ${args.season}`);
   const id = seasonId(ref);
   const file = join(ROOT, 'data', 'seasons', `${id}.json`);
-  const existing = existsSync(file) ? JSON.parse(await readFile(file, 'utf8')) : null;
+  const existing = await readJsonIfExists(file);
   const existingById = new Map((existing?.items ?? []).map((a) => [a.id, a]));
 
   console.log(`${id} の作品を取得します（画像: ${args.upload}）`);
