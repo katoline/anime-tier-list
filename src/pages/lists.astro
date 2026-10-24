@@ -1,0 +1,35 @@
+---
+import Base from '../layouts/Base.astro';
+import AdSlot from '../components/AdSlot.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import ListCards from '../components/ListCards.astro';
+import { getSeason, getSeasons } from '../lib/data';
+import { parseSeasonId, seasonLabel } from '../lib/season';
+import { listPublic } from '../lib/tierlists-db';
+
+const seasonParam = Astro.url.searchParams.get('season');
+const season = seasonParam ? getSeason(seasonParam) : undefined;
+const before = Number(Astro.url.searchParams.get('before')) || undefined;
+const PAGE = 30;
+const lists = await listPublic({ seasonId: season?.id, limit: PAGE, before });
+const nextBefore = lists.length === PAGE ? lists[lists.length - 1].updatedAt : null;
+Astro.response.headers.set('X-Edge-Cache', '120');
+const label = season ? seasonLabel(parseSeasonId(season.id)!) : null;
+const title = label ? `${label}のティア表一覧` : 'みんなのティア表';
+const qs = (b: number) => `?${new URLSearchParams({ ...(season ? { season: season.id } : {}), before: String(b) })}`;
+---
+<Base title={title} description="みんなが公開したアニメのティア表の新着一覧です。" noindex={Boolean(before)} canonicalPath={season ? `/lists?season=${season.id}` : '/lists'}>
+  <div class="container">
+    <Breadcrumb items={[{ name: 'ホーム', href: '/' }, { name: title }]} />
+    <h1>{title}</h1>
+    <div class="row" style="margin-bottom:16px">
+      <a class={`btn btn-sm ${!season ? 'btn-primary' : ''}`} href="/lists">すべて</a>
+      {getSeasons().slice(0, 6).map((s) => (
+        <a class={`btn btn-sm ${season?.id === s.id ? 'btn-primary' : ''}`} href={`/lists?season=${s.id}`}>{seasonLabel(parseSeasonId(s.id)!)}</a>
+      ))}
+    </div>
+    <ListCards lists={lists} />
+    {nextBefore && <p><a class="btn" href={qs(nextBefore)}>さらに見る</a></p>}
+    <AdSlot />
+  </div>
+</Base>

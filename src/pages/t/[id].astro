@@ -1,0 +1,76 @@
+---
+import Base from '../../layouts/Base.astro';
+import AdSlot from '../../components/AdSlot.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import TierView from '../../components/TierView.astro';
+import { getSeason, seasonPath } from '../../lib/data';
+import { parseSeasonId, seasonLabel } from '../../lib/season';
+import { breadcrumbLd } from '../../lib/seo';
+import { getTierList } from '../../lib/tierlists-db';
+
+const list = await getTierList(Astro.params.id ?? '');
+const user = Astro.locals.user;
+const isOwner = Boolean(user && list && user.id === list.userId);
+if (!list || (list.visibility === 'private' && !isOwner)) {
+  return new Response(null, { status: 404 });
+}
+const ref = parseSeasonId(list.seasonId)!;
+const season = getSeason(list.seasonId);
+const label = seasonLabel(ref);
+// 公開ページは未ログインのアクセスをエッジに 60 秒キャッシュする
+if (list.visibility !== 'private') Astro.response.headers.set('X-Edge-Cache', '60');
+
+const pageUrl = new URL(`/t/${list.id}`, Astro.site).href;
+const shareText = `${list.title} #アニメティア表 #${label}`;
+const crumbs = [{ name: 'ホーム', href: '/' }, { name: label, href: seasonPath(ref) }, { name: list.title }];
+const description = list.description || `${list.displayName} さんの${label}ティア表（${list.rankedCount}作品）。`;
+const top = list.data.tiers[0];
+const fmt = new Intl.DateTimeFormat('ja-JP', { timeZone: 'Asia/Tokyo', dateStyle: 'medium' });
+// 作品をほとんど置いていないティア表や限定公開のものは検索結果に出さない
+const noindex = list.visibility !== 'public' || list.rankedCount < 5;
+---
+<Base
+  title={`${list.title}（${list.displayName}）`}
+  description={description}
+  ogImage={`/og/t/${list.id}.png?v=${list.version}`}
+  ogType="article"
+  noindex={noindex}
+  jsonLd={breadcrumbLd(Astro.site!, crumbs)}
+>
+  <div class="container">
+    <Breadcrumb items={crumbs} />
+    <h1>{list.title}</h1>
+    <p class="muted small">
+      <a href={`/u/${list.username}`}>{list.displayName}</a> ・ {label} ・ {list.rankedCount} 作品 ・ {fmt.format(list.updatedAt)} 更新
+      {list.visibility !== 'public' && <span class="badge">{list.visibility === 'private' ? '非公開' : '限定公開'}</span>}
+    </p>
+    {list.description && <p>{list.description}</p>}
+
+    <TierView data={list.data} />
+
+    <div class="row" style="margin-top:16px">
+      {season && <a class="btn btn-primary" href={`${seasonPath(ref)}/edit?from=${list.id}`}>このティア表をもとに作る</a>}
+      {season && <a class="btn" href={`${seasonPath(ref)}/edit`}>自分のティア表を作る</a>}
+      <a class="btn btn-sm" data-owner-only hidden href={`${seasonPath(ref)}/edit?list=${list.id}`}>編集する</a>
+    </div>
+    {list.visibility !== 'private' && (
+      <div class="row" style="margin-top:12px">
+        <a class="btn btn-sm" href={`https://x.com/intent/post?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(pageUrl)}`} target="_blank" rel="noopener">X でポスト</a>
+        <a class="btn btn-sm" href={`https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(pageUrl)}`} target="_blank" rel="noopener">LINE で送る</a>
+        <a class="btn btn-sm" href={`https://bsky.app/intent/compose?text=${encodeURIComponent(`${shareText} ${pageUrl}`)}`} target="_blank" rel="noopener">Bluesky</a>
+        <button class="btn btn-sm" type="button" data-copy={pageUrl}>URL をコピー</button>
+      </div>
+    )}
+    {top && top.items.length > 0 && <p class="muted small">最上位「{top.label}」には {top.items.length} 作品。</p>}
+
+    <AdSlot variant="inline" />
+  </div>
+  <script is:inline define:vars={{ owner: list.username }}>
+    // ページはキャッシュされるので、編集ボタンはクッキーのユーザー名で出し分ける
+    var m = document.cookie.match(/(?:^|; )li=([^;]+)/);
+    if (m && decodeURIComponent(m[1]) === owner) document.querySelectorAll('[data-owner-only]').forEach(function (el) { el.hidden = false; });
+    document.querySelectorAll('[data-copy]').forEach(function (b) {
+      b.addEventListener('click', function () { navigator.clipboard.writeText(b.getAttribute('data-copy')).then(function () { b.textContent = 'コピーしました'; }); });
+    });
+  </script>
+</Base>

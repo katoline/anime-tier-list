@@ -1,0 +1,104 @@
+---
+import Base from '../../layouts/Base.astro';
+import AdSlot from '../../components/AdSlot.astro';
+import AnimeCard from '../../components/AnimeCard.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Distribution from '../../components/Distribution.astro';
+import { getAnimeBySlug, getSeason, seasonPath, seasonsOfAnime, toCardData } from '../../lib/data';
+import { parseSeasonId, seasonLabel } from '../../lib/season';
+import { breadcrumbLd } from '../../lib/seo';
+import { env } from 'cloudflare:workers';
+
+const anime = getAnimeBySlug(Astro.params.slug ?? '');
+if (!anime) return new Response(null, { status: 404 });
+
+const seasonIds = seasonsOfAnime(anime.id);
+const mainSeason = getSeason(seasonIds[0])!;
+const mainRef = parseSeasonId(mainSeason.id)!;
+const { results: statRows } = await env.DB.prepare(
+  'SELECT season_id, score_sum, count, b0, b1, b2, b3, b4 FROM anime_stats WHERE anime_id = ? AND count > 0',
+)
+  .bind(anime.id)
+  .all<{ season_id: string; score_sum: number; count: number; b0: number; b1: number; b2: number; b3: number; b4: number }>();
+const stats = statRows.map((r) => ({
+  season: parseSeasonId(r.season_id)!,
+  average: r.score_sum / r.count,
+  count: r.count,
+  distribution: [r.b0, r.b1, r.b2, r.b3, r.b4],
+}));
+Astro.response.headers.set('X-Edge-Cache', '1800');
+
+// 集計が少ないうちは内容が薄いので検索結果に出さない
+const totalVotes = stats.reduce((n, s) => n + s.count, 0);
+const noindex = totalVotes < 5;
+const label = seasonLabel(mainRef);
+const crumbs = [{ name: 'ホーム', href: '/' }, { name: label, href: seasonPath(mainRef) }, { name: anime.title }];
+const formatLabels: Record<string, string> = { TV: 'TV', TV_SHORT: 'TV（ショート）', ONA: 'Web配信', MOVIE: '映画', OVA: 'OVA' };
+const jsonLd = [
+  breadcrumbLd(Astro.site!, crumbs),
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TVSeries',
+    name: anime.title,
+    ...(anime.titleRomaji ? { alternateName: anime.titleRomaji } : {}),
+    ...(anime.startDate ? { startDate: anime.startDate } : {}),
+    ...(anime.studios.length ? { productionCompany: anime.studios.map((name) => ({ '@type': 'Organization', name })) } : {}),
+    ...(anime.officialUrl ? { sameAs: [anime.officialUrl] } : {}),
+    genre: anime.genres,
+  },
+];
+const description = `${anime.title}（${label}）の作品情報と、みんなのティア表での評価。${anime.studios.length ? `制作: ${anime.studios.join('、')}。` : ''}`;
+---
+<Base title={`${anime.title} の評価・ティア`} description={description} jsonLd={jsonLd} noindex={noindex}>
+  <div class="container layout-with-side">
+    <article>
+      <Breadcrumb items={crumbs} />
+      <div class="row" style="align-items:flex-start;gap:20px;flex-wrap:nowrap">
+        <div style="width:140px;flex:0 0 140px"><AnimeCard anime={toCardData(anime)} eager /></div>
+        <div>
+          <h1>{anime.title}</h1>
+          {anime.titleRomaji && <p class="muted small" style="margin:0">{anime.titleRomaji}</p>}
+          <dl class="small" style="display:grid;grid-template-columns:auto 1fr;gap:2px 12px;margin:12px 0">
+            <dt class="muted">放送</dt><dd style="margin:0">{seasonIds.map((id) => seasonLabel(parseSeasonId(id)!)).reverse().join('・')}{anime.continuing ? '（前期から継続）' : ''}</dd>
+            {anime.format && <><dt class="muted">形式</dt><dd style="margin:0">{formatLabels[anime.format] ?? anime.format}{anime.episodes ? `・全${anime.episodes}話` : ''}</dd></>}
+            {anime.startDate && <><dt class="muted">放送開始</dt><dd style="margin:0">{anime.startDate}</dd></>}
+            {anime.studios.length > 0 && <><dt class="muted">制作</dt><dd style="margin:0">{anime.studios.join('、')}</dd></>}
+            {anime.genres.length > 0 && <><dt class="muted">ジャンル</dt><dd style="margin:0">{anime.genres.join('、')}</dd></>}
+          </dl>
+          <div class="row">
+            {anime.officialUrl && <a class="btn btn-sm" href={anime.officialUrl} rel="noopener nofollow" target="_blank">公式サイト</a>}
+            <a class="btn btn-sm btn-primary" href={`${seasonPath(mainRef)}/edit`}>{label}のティア表を作る</a>
+          </div>
+        </div>
+      </div>
+
+      <h2>みんなのティア表での評価</h2>
+      {stats.length === 0 ? (
+        <p class="muted">まだ公開ティア表での評価はありません。</p>
+      ) : (
+        <table class="stats-table">
+          <thead><tr><th>季節</th><th>分布（S〜D）</th><th class="num">平均</th><th class="num">票数</th></tr></thead>
+          <tbody>
+            {stats.map((s) => (
+              <tr>
+                <td><a href={seasonPath(s.season)}>{seasonLabel(s.season)}</a></td>
+                <td><Distribution distribution={s.distribution} /></td>
+                <td class="num">{s.average.toFixed(1)}</td>
+                <td class="num">{s.count}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+
+      <p class="muted small" style="margin-top:2rem">
+        作品データ: <a href={anime.sourceUrl} rel="noopener nofollow" target="_blank">AniList</a>。作品名・画像の著作権は各権利者に帰属します。
+        掲載内容についてのご連絡は<a href={`/takedown?anime=${anime.id}`}>こちら</a>。
+      </p>
+      <AdSlot variant="inline" />
+    </article>
+    <aside class="side">
+      <AdSlot variant="side" minHeight={600} />
+    </aside>
+  </div>
+</Base>

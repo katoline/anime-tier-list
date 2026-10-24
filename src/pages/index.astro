@@ -1,0 +1,75 @@
+---
+import Base from '../layouts/Base.astro';
+import AdSlot from '../components/AdSlot.astro';
+import AnimeCard from '../components/AnimeCard.astro';
+import ListCards from '../components/ListCards.astro';
+import { SITE_DESCRIPTION, SITE_NAME } from '../lib/config';
+import { currentSeason, getSeasons, seasonPath, toCardData } from '../lib/data';
+import { parseSeasonId, seasonLabel } from '../lib/season';
+import { listPublic } from '../lib/tierlists-db';
+
+const season = currentSeason();
+const ref = season ? parseSeasonId(season.id) : null;
+const recent = await listPublic({ limit: 12 });
+const seasons = getSeasons().slice(0, 8);
+Astro.response.headers.set('X-Edge-Cache', '300');
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE_NAME,
+  url: new URL('/', Astro.site).href,
+  description: SITE_DESCRIPTION,
+};
+---
+<Base jsonLd={jsonLd}>
+  <div class="container">
+    <section class="hero">
+      <h1>今期アニメのティア表を作ろう</h1>
+      <p>放送中のアニメをドラッグ&ドロップで S〜D にランク付け。作ったティア表は保存して、X や LINE でそのまま共有できます。作品一覧は毎週自動で更新されます。</p>
+      {season && ref && (
+        <div class="row">
+          <a class="btn btn-primary" href={`${seasonPath(season)}/edit`}>{seasonLabel(ref)}のティア表を作る</a>
+          <a class="btn" href={seasonPath(season)}>みんなの評価を見る</a>
+        </div>
+      )}
+    </section>
+
+    <AdSlot />
+
+    {season && ref && (
+      <section>
+        <h2>{seasonLabel(ref)}（{season.items.length} 作品）</h2>
+        <ul class="anime-grid">
+          {season.items.slice(0, 18).map((a, i) => (
+            <li>
+              <a href={`/anime/${a.slug}`}>
+                <AnimeCard anime={toCardData(a)} eager={i < 6} />
+                <div class="name">{a.title}</div>
+              </a>
+            </li>
+          ))}
+        </ul>
+        <p><a href={seasonPath(season)}>{seasonLabel(ref)}をすべて見る →</a></p>
+      </section>
+    )}
+
+    <section>
+      <h2>新着のティア表</h2>
+      <ListCards lists={recent} />
+      <p><a href="/lists">もっと見る →</a></p>
+    </section>
+
+    <AdSlot variant="inline" />
+
+    <section>
+      <h2>季節から選ぶ</h2>
+      <div class="row">
+        {seasons.map((s) => {
+          const r = parseSeasonId(s.id)!;
+          return <a class="btn btn-sm" href={seasonPath(s)}>{seasonLabel(r)}</a>;
+        })}
+      </div>
+    </section>
+  </div>
+</Base>
