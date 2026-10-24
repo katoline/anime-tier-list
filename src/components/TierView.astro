@@ -1,0 +1,29 @@
+---
+// 保存済みティア表の閲覧用表示（JavaScript なしで描画）
+import AnimeCard from './AnimeCard.astro';
+import { getAnime, toCardData } from '../lib/data';
+import type { TierListData } from '../lib/tierlist';
+
+interface Props {
+  data: TierListData;
+}
+const { data } = Astro.props;
+const tiers = data.tiers.map((t) => ({
+  ...t,
+  anime: t.items.map((id) => getAnime(id)).filter((a) => a !== undefined),
+}));
+---
+<div class="tier-table">
+  {tiers.map((tier) => (
+    <div class="tier-row">
+      <div class="tier-label" style={`background:${tier.color}`}>{tier.label}</div>
+      <div class="tier-items">
+        {tier.anime.map((a) => (
+          <a href={`/anime/${a.slug}`}>
+            <AnimeCard anime={toCardData(a)} size="sm" />
+          </a>
+        ))}
+      </div>
+    </div>
+  ))}
+</div>

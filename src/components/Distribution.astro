@@ -1,0 +1,14 @@
+---
+// S〜D の分布バー
+interface Props {
+  distribution: number[];
+}
+const { distribution } = Astro.props;
+const total = distribution.reduce((a, b) => a + b, 0) || 1;
+const colors = ['#ff7f7f', '#ffbf7f', '#ffdf7f', '#ffff7f', '#bfff7f'];
+const labels = ['S', 'A', 'B', 'C', 'D'];
+const title = distribution.map((n, i) => `${labels[i]}: ${n}`).join(' / ');
+---
+<div class="dist" title={title} role="img" aria-label={title}>
+  {distribution.map((n, i) => n > 0 && <span style={`width:${(n / total) * 100}%;background:${colors[i]}`}></span>)}
+</div>
