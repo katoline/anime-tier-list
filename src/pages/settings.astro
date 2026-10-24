@@ -1,0 +1,53 @@
+---
+import Base from '../layouts/Base.astro';
+
+const user = Astro.locals.user;
+if (!user) return Astro.redirect('/login?next=/settings');
+Astro.response.headers.set('Cache-Control', 'private, no-store');
+---
+<Base title="プロフィール設定" noindex>
+  <div class="container" style="max-width:560px">
+    <h1>プロフィール設定</h1>
+    <form id="profile" class="card stack">
+      <div class="field">
+        <label for="username">ユーザー名（公開ページの URL に使われます）</label>
+        <input id="username" name="username" type="text" value={user.username} pattern="[a-z0-9_]{3,20}" required maxlength="20" autocomplete="username" />
+        <span class="muted small">半角英小文字・数字・_ の 3〜20 文字</span>
+      </div>
+      <div class="field">
+        <label for="displayName">表示名</label>
+        <input id="displayName" name="displayName" type="text" value={user.displayName} required maxlength="30" />
+      </div>
+      <p class="muted small">メールアドレス: {user.email}（公開されません）</p>
+      <div class="row"><button class="btn btn-primary" type="submit">保存</button><span id="profile-msg" class="small" role="status"></span></div>
+    </form>
+
+    <h2>退会</h2>
+    <div class="card stack">
+      <p class="small">アカウントと保存したティア表をすべて削除します。元に戻せません。</p>
+      <button id="delete-account" class="btn btn-danger" type="button">退会する</button>
+    </div>
+  </div>
+  <script>
+    const form = document.getElementById('profile') as HTMLFormElement;
+    const msg = document.getElementById('profile-msg')!;
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const fd = new FormData(form);
+      const res = await fetch('/api/me', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username: fd.get('username'), displayName: fd.get('displayName') }),
+      });
+      const json = (await res.json().catch(() => ({}))) as { error?: string };
+      msg.textContent = res.ok ? '保存しました' : json.error ?? '保存できませんでした';
+      msg.className = res.ok ? 'small' : 'small error';
+    });
+    document.getElementById('delete-account')!.addEventListener('click', async () => {
+      if (!confirm('本当に退会しますか？保存したティア表もすべて削除されます。')) return;
+      const res = await fetch('/api/me', { method: 'DELETE' });
+      if (res.ok) location.href = '/';
+      else alert('退会処理に失敗しました');
+    });
+  </script>
+</Base>

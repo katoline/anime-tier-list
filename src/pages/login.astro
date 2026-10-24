@@ -1,0 +1,73 @@
+---
+import Base from '../layouts/Base.astro';
+import { TURNSTILE_SITE_KEY } from '../lib/config';
+
+export const prerender = true;
+---
+<Base title="ログイン" description="Google アカウントまたはメールアドレスでログインできます。" noindex>
+  <Fragment slot="head">
+    {TURNSTILE_SITE_KEY && <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
+  </Fragment>
+  <div class="container" style="max-width:480px">
+    <h1>ログイン / 新規登録</h1>
+    <p class="muted small">ログインすると、ティア表を保存・公開できます。初めての方もこのページから登録できます。</p>
+    <p id="login-error" class="error small" role="alert" hidden></p>
+    <div class="card stack">
+      <a id="google" class="btn btn-primary" href="/api/auth/google" style="width:100%">Google でログイン</a>
+      <hr style="border:0;border-top:1px solid var(--border);margin:16px 0" />
+      <form id="email-form" class="stack">
+        <div class="field">
+          <label for="email">メールアドレスでログイン</label>
+          <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@example.com" />
+        </div>
+        {TURNSTILE_SITE_KEY && <div class="cf-turnstile" data-sitekey={TURNSTILE_SITE_KEY} data-language="ja"></div>}
+        <button class="btn" type="submit" style="width:100%">ログインリンクを送る</button>
+        <p id="email-msg" class="small" role="status"></p>
+      </form>
+    </div>
+    <p class="muted small">ログインすることで<a href="/terms">利用規約</a>と<a href="/privacy">プライバシーポリシー</a>に同意したものとみなします。パスワードは不要です。</p>
+  </div>
+  <script>
+    const params = new URLSearchParams(location.search);
+    const next = params.get('next') ?? '/me';
+    const google = document.getElementById('google') as HTMLAnchorElement;
+    google.href = `/api/auth/google?next=${encodeURIComponent(next)}`;
+    const error = params.get('error');
+    if (error) {
+      const el = document.getElementById('login-error')!;
+      el.textContent = error;
+      el.hidden = false;
+    }
+    const form = document.getElementById('email-form') as HTMLFormElement;
+    const msg = document.getElementById('email-msg')!;
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const button = form.querySelector('button')!;
+      button.disabled = true;
+      const fd = new FormData(form);
+      const res = await fetch('/api/auth/email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: fd.get('email'), next, turnstileToken: fd.get('cf-turnstile-response') }),
+      }).catch(() => null);
+      const json = (res ? await res.json().catch(() => ({})) : {}) as { error?: string; link?: string };
+      if (res?.ok) {
+        msg.className = 'small';
+        msg.textContent = 'ログインリンクを送りました。メールを確認してください（15 分有効）。';
+        if (json.link) {
+          const a = document.createElement('a');
+          a.href = json.link;
+          a.textContent = '（開発用）ログインリンクを開く';
+          a.id = 'dev-login-link';
+          msg.appendChild(document.createElement('br'));
+          msg.appendChild(a);
+        }
+      } else {
+        msg.className = 'small error';
+        msg.textContent = json.error ?? '送信できませんでした';
+        button.disabled = false;
+        (window as unknown as { turnstile?: { reset: () => void } }).turnstile?.reset();
+      }
+    });
+  </script>
+</Base>

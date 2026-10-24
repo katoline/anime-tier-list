@@ -1,0 +1,64 @@
+---
+import Base from '../layouts/Base.astro';
+import { seasonPath } from '../lib/data';
+import { parseSeasonId, seasonLabel } from '../lib/season';
+import { VISIBILITY_LABELS } from '../lib/tierlist';
+import { listByUser } from '../lib/tierlists-db';
+
+const user = Astro.locals.user;
+if (!user) return Astro.redirect('/login?next=/me');
+const lists = await listByUser(user.id);
+Astro.response.headers.set('Cache-Control', 'private, no-store');
+const fmt = new Intl.DateTimeFormat('ja-JP', { timeZone: 'Asia/Tokyo', dateStyle: 'medium', timeStyle: 'short' });
+---
+<Base title="マイページ" noindex>
+  <div class="container stack">
+    <div class="row">
+      <h1 style="margin:0">マイページ</h1>
+      <span class="spacer"></span>
+      <a class="btn btn-sm" href="/settings">プロフィール設定</a>
+      <form method="post" action="/api/auth/logout"><button class="btn btn-sm" type="submit">ログアウト</button></form>
+    </div>
+    <p class="muted">{user.displayName}（@{user.username}） ・ 公開ページ: <a href={`/u/${user.username}`}>/u/{user.username}</a></p>
+
+    <h2>保存したティア表（{lists.length}）</h2>
+    {lists.length === 0 ? (
+      <p class="muted">まだ保存したティア表はありません。<a href="/">今期のティア表を作ってみましょう。</a></p>
+    ) : (
+      <table class="stats-table">
+        <thead><tr><th>タイトル</th><th>季節</th><th>公開範囲</th><th>更新</th><th></th></tr></thead>
+        <tbody>
+          {lists.map((l) => {
+            const ref = parseSeasonId(l.seasonId)!;
+            return (
+              <tr data-row={l.id}>
+                <td><a href={`/t/${l.id}`}>{l.title}</a></td>
+                <td>{seasonLabel(ref)}</td>
+                <td>{VISIBILITY_LABELS[l.visibility]}</td>
+                <td class="small">{fmt.format(l.updatedAt)}</td>
+                <td class="num">
+                  <a class="btn btn-sm" href={`${seasonPath(ref)}/edit?list=${l.id}`}>編集</a>
+                  <button class="btn btn-sm btn-danger" type="button" data-delete={l.id} data-title={l.title}>削除</button>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    )}
+  </div>
+  <script>
+    document.querySelectorAll<HTMLButtonElement>('[data-delete]').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        if (!confirm(`「${btn.dataset.title}」を削除しますか？元に戻せません。`)) return;
+        btn.disabled = true;
+        const res = await fetch(`/api/tierlists/${btn.dataset.delete}`, { method: 'DELETE' });
+        if (res.ok) document.querySelector(`[data-row="${btn.dataset.delete}"]`)?.remove();
+        else {
+          alert('削除できませんでした');
+          btn.disabled = false;
+        }
+      });
+    });
+  </script>
+</Base>
