@@ -1,0 +1,7 @@
+# wrangler / astro preview 用のシークレット（.dev.vars にコピーして使う）
+# 1 にするとログインリンクをメール送信せず画面に表示する（ローカル開発専用）
+DEV_EXPOSE_LOGIN_LINK=1
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+RESEND_API_KEY=
+TURNSTILE_SECRET_KEY=
