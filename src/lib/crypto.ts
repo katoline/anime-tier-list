@@ -9,9 +9,14 @@ export function randomToken(bytes = 32): string {
 
 /** URL に使う短い ID（紛らわしい文字を除いた英数字） */
 export function shortId(length = 10): string {
-  const buf = crypto.getRandomValues(new Uint8Array(length));
+  // 文字ごとの出現確率が偏らないよう、文字数の倍数を超える値は捨てて引き直す
+  const limit = 256 - (256 % ALPHABET.length);
   let out = '';
-  for (const b of buf) out += ALPHABET[b % ALPHABET.length];
+  while (out.length < length) {
+    for (const b of crypto.getRandomValues(new Uint8Array(length * 2))) {
+      if (b < limit && out.length < length) out += ALPHABET[b % ALPHABET.length];
+    }
+  }
   return out;
 }
 
