@@ -203,3 +203,11 @@ input:focus-visible, textarea:focus-visible, select:focus-visible, .btn:focus-vi
 }
 /* 文字カードはカード自体にタイトルがあるので、下の作品名は出さない */
 .anime-grid .acard.text + .name { display: none; }
+
+.tier-legend { margin: 0; display: grid; gap: 4px; }
+.tier-legend-row { display: flex; align-items: stretch; background: var(--surface-2); border-radius: 6px; overflow: hidden; }
+.tier-legend dt { flex: 0 0 48px; display: flex; align-items: center; justify-content: center; color: #1a1a22; font-weight: 700; font-size: 1.2rem; }
+.tier-legend dd { margin: 0; padding: 8px 12px; display: flex; flex-wrap: wrap; gap: 2px 12px; align-items: baseline; }
+.tier-legend dd .muted { font-size: .9rem; }
+.tier-legend-box { margin-top: 24px; }
+.tier-legend-box summary { cursor: pointer; font-weight: 700; margin-bottom: 8px; }

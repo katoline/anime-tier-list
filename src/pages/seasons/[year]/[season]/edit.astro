@@ -1,6 +1,7 @@
 ---
 import Base from '../../../../layouts/Base.astro';
 import Breadcrumb from '../../../../components/Breadcrumb.astro';
+import TierLegend from '../../../../components/TierLegend.astro';
 import TierEditor from '../../../../components/editor/TierEditor';
 import { IMAGE_MODE, SITE_NAME } from '../../../../lib/config';
 import { getSeasons, seasonPath, toCardData } from '../../../../lib/data';
@@ -24,5 +25,10 @@ const anime = season.items.map(toCardData);
     <Breadcrumb items={[{ name: 'ホーム', href: '/' }, { name: label, href: seasonPath(ref) }, { name: 'ティア表を作る' }]} />
     <h1>{label} ティア表を作る</h1>
     <TierEditor client:load seasonId={seasonId} seasonLabel={label} anime={anime} imageMode={IMAGE_MODE === 'image'} siteName={SITE_NAME} />
+    <details class="tier-legend-box" open>
+      <summary>ランクの目安（S〜F）</summary>
+      <TierLegend />
+      <p class="muted small">あくまで目安です。ティア名や段数は行の左端から自由に変えられます。まだ見ていない作品は「未分類」に残しておけば評価に数えられません。</p>
+    </details>
   </div>
 </Base>
