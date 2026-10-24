@@ -107,8 +107,32 @@ BASE_URL=http://localhost:4321 node tests/e2e/smoke.mjs   # ブラウザでの�
    | Variable | `ADSENSE_CLIENT` / `ADSENSE_SLOT_DEFAULT` | AdSense の `ca-pub-...` と広告ユニット ID（審査通過後に設定。未設定なら広告枠を出さない） |
    | Variable | `OPERATOR_NAME` / `CONTACT_EMAIL` | 規約・プライバシーポリシーに載せる運営者名と連絡先 |
 
-5. リポジトリ設定で「Allow auto-merge」を有効にし、`main` のブランチ保護で CI（`test`）を必須チェックにする
+5. GitHub のリポジトリ設定を行う（下の「リポジトリの設定」）
 6. Actions の「今期アニメの週次取得」を手動実行して、最初の画像アップロードと PR → 自動マージ → デプロイが通ることを確認する
+
+## リポジトリの設定
+
+公開リポジトリなので、`main` への直接 push を禁止し、オーナー以外の PR は受け付けない設定にします。
+
+1. **Settings → General → Pull Requests**
+   - 「Allow merge commits」だけオン。「Allow squash merging」「Allow rebase merging」はオフ
+   - 「Always suggest updating pull request branches」「Allow auto-merge」「Automatically delete head branches」をオン
+2. **Settings → Rules → Rulesets → New ruleset → Import a ruleset** で `.github/rulesets/main.json` を読み込んで保存
+   - 削除・強制 push の禁止、PR 必須（マージコミットのみ、未解決の会話があるとマージ不可）、CI の `test` と `e2e` が通ることを必須にします
+3. **Settings → General → Features / Pull Requests** に PR を作れる人を共同作業者に限る項目があればオンにする。なくても `.github/workflows/pr-guard.yml` が、許可した人（Variables の `PR_ALLOWED_AUTHORS`、既定は `seino914`）とボット以外の PR を自動で閉じます
+4. **Settings → Actions → General → Fork pull request workflows** で「Require approval for all external contributors」を選ぶ
+5. **Settings → Code security** で Dependabot alerts / security updates、Secret scanning、Push protection をオンにする
+
+CI/CD の流れ:
+
+| ワークフロー | タイミング | 内容 |
+| --- | --- | --- |
+| CI | PR・main への push | データ検証、単体テスト、型チェック、ビルド（`test`）とブラウザでの通し確認（`e2e`） |
+| CodeQL | PR・main への push・毎週 | コードのセキュリティ解析 |
+| Deploy | main への push | D1 のマイグレーションと Workers へのデプロイ |
+| 今期アニメの週次取得 | 毎週月曜 | 作品データ更新 PR を作り、CI が通れば自動マージ |
+| PR の作成者チェック | PR 作成時 | 許可していない人の PR を自動で閉じる |
+| Dependabot | 毎週火曜 | npm と Actions の更新 PR |
 
 ## 週次の作品取得
 
@@ -117,7 +141,7 @@ BASE_URL=http://localhost:4321 node tests/e2e/smoke.mjs   # ブラウザでの�
 1. `scripts/fetch-season.mjs` が AniList から今期の作品（前の季節から続く 2 クール目を含む、日本の作品、人気上位 120 件まで）を取得
 2. 新しい・変わった画像だけを 160px / 480px の WebP と OGP 用の JPEG に変換して R2 へアップロード
 3. 変化があれば `data/seasons/<季節ID>.json` を更新して PR を作成し、自動マージを予約
-4. CI（データ検証・作品数の急減チェック・テスト・ビルド）が通るとマージされ、Deploy ワークフローが本番へ反映
+4. CI（データ検証・作品数の急減チェック・テスト・ビルド・ブラウザ確認）が通るとマージされ、Deploy ワークフローが本番へ反映
 
 人気度の変動だけでは PR を作りません。作品名の修正や除外は `data/overrides.json` で行い、自動更新で上書きされないようにしています。
 
