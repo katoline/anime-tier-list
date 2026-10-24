@@ -1,0 +1,20 @@
+---
+import Base from '../../layouts/Base.astro';
+import ListCards from '../../components/ListCards.astro';
+import { env } from 'cloudflare:workers';
+import { listByUser } from '../../lib/tierlists-db';
+
+const row = await env.DB.prepare('SELECT id, username, display_name FROM users WHERE username = ?')
+  .bind((Astro.params.username ?? '').toLowerCase())
+  .first<{ id: string; username: string; display_name: string }>();
+if (!row) return new Response(null, { status: 404 });
+const lists = await listByUser(row.id, { publicOnly: true, limit: 100 });
+Astro.response.headers.set('X-Edge-Cache', '120');
+---
+<Base title={`${row.display_name} さんのティア表`} description={`${row.display_name} さんが公開しているアニメのティア表の一覧です。`} noindex>
+  <div class="container">
+    <h1>{row.display_name} さんのティア表</h1>
+    <p class="muted small">@{row.username}</p>
+    <ListCards lists={lists} showAuthor={false} empty="公開しているティア表はありません。" />
+  </div>
+</Base>

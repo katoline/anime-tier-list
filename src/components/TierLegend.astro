@@ -1,0 +1,12 @@
+---
+// 標準ティア（S〜F）の意味の一覧
+import { TIER_MEANINGS } from '../lib/tierlist';
+---
+<dl class="tier-legend">
+  {TIER_MEANINGS.map((m) => (
+    <div class="tier-legend-row">
+      <dt style={`background:${m.color}`}>{m.label}</dt>
+      <dd><strong>{m.title}</strong><span class="muted">{m.text}</span></dd>
+    </div>
+  ))}
+</dl>

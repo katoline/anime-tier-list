@@ -1,0 +1,34 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import Breadcrumb from '../../../../components/Breadcrumb.astro';
+import TierLegend from '../../../../components/TierLegend.astro';
+import TierEditor from '../../../../components/editor/TierEditor';
+import { IMAGE_MODE, SITE_NAME } from '../../../../lib/config';
+import { getSeasons, seasonPath, toCardData } from '../../../../lib/data';
+import { parseSeasonId, seasonLabel } from '../../../../lib/season';
+
+// エディタは中身がブラウザで動くので、季節ごとに静的に生成する（サーバー負荷ゼロ）
+export const prerender = true;
+
+export function getStaticPaths() {
+  return getSeasons().map((s) => ({ params: { year: String(s.year), season: s.season }, props: { seasonId: s.id } }));
+}
+
+const { seasonId } = Astro.props as { seasonId: string };
+const season = getSeasons().find((s) => s.id === seasonId)!;
+const ref = parseSeasonId(seasonId)!;
+const label = seasonLabel(ref);
+const anime = season.items.map(toCardData);
+---
+<Base title={`${label} ティア表メーカー`} description={`${label}をドラッグ&ドロップでランク付けしてティア表を作成。保存してSNSで共有できます。`} plain>
+  <div class="container">
+    <Breadcrumb items={[{ name: 'ホーム', href: '/' }, { name: label, href: seasonPath(ref) }, { name: 'ティア表を作る' }]} />
+    <h1>{label} ティア表を作る</h1>
+    <TierEditor client:load seasonId={seasonId} seasonLabel={label} anime={anime} imageMode={IMAGE_MODE === 'image'} siteName={SITE_NAME} />
+    <details class="tier-legend-box" open>
+      <summary>ランクの目安（S〜F）</summary>
+      <TierLegend />
+      <p class="muted small">あくまで目安です。ティア名や段数は行の左端から自由に変えられます。まだ見ていない作品は「未分類」に残しておけば評価に数えられません。</p>
+    </details>
+  </div>
+</Base>

@@ -1,0 +1,14 @@
+---
+// S〜F の分布バー
+import { STAT_BUCKETS, STAT_BUCKET_COLORS } from '../lib/tierlist';
+
+interface Props {
+  distribution: number[];
+}
+const { distribution } = Astro.props;
+const total = distribution.reduce((a, b) => a + b, 0) || 1;
+const title = distribution.map((n, i) => `${STAT_BUCKETS[i]}: ${n}`).join(' / ');
+---
+<div class="dist" title={title} role="img" aria-label={title}>
+  {distribution.map((n, i) => n > 0 && <span style={`width:${(n / total) * 100}%;background:${STAT_BUCKET_COLORS[i]}`}></span>)}
+</div>

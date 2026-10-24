@@ -1,0 +1,1999 @@
+{
+  "id": "2026-fall",
+  "year": 2026,
+  "season": "fall",
+  "updatedAt": "2026-10-23T20:03:07.012Z",
+  "source": "AniList",
+  "items": [
+    {
+      "id": "al-195516",
+      "anilistId": 195516,
+      "slug": "195516-kusuriya-no-hitorigoto-3rd-season",
+      "title": "薬屋のひとりごと 第3期",
+      "titleRomaji": "Kusuriya no Hitorigoto 3rd Season",
+      "titleEnglish": "The Apothecary Diaries Season 3",
+      "format": "TV",
+      "episodes": 12,
+      "startDate": "2026-10-02",
+      "studios": [
+        "OLM"
+      ],
+      "genres": [
+        "Drama",
+        "Mystery"
+      ],
+      "officialUrl": "https://kusuriyanohitorigoto.jp/",
+      "sourceUrl": "https://anilist.co/anime/195516",
+      "color": "#e4a128",
+      "continuing": false,
+      "popularity": 103153,
+      "image": null
+    },
+    {
+      "id": "al-195539",
+      "anilistId": 195539,
+      "slug": "195539-cyberpunk-edgerunners-2",
+      "title": "サイバーパンク: エッジランナーズ2",
+      "titleRomaji": "Cyberpunk: Edgerunners 2",
+      "titleEnglish": "Cyberpunk: Edgerunners 2",
+      "format": "ONA",
+      "episodes": 10,
+      "startDate": "2026-10-20",
+      "studios": [
+        "TRIGGER"
+      ],
+      "genres": [
+        "Action",
+        "Drama",
+        "Sci-Fi"
+      ],
+      "officialUrl": "https://www.cyberpunk.net/ja/edgerunners2",
+      "sourceUrl": "https://anilist.co/anime/195539",
+      "color": "#fe286b",
+      "continuing": false,
+      "popularity": 97022,
+      "image": null
+    },
+    {
+      "id": "al-195604",
+      "anilistId": 195604,
+      "slug": "195604-black-clover-2nd-season",
+      "title": "ブラッククローバー 第2期",
+      "titleRomaji": "Black Clover 2nd Season",
+      "titleEnglish": "Black Clover Season 2",
+      "format": "TV",
+      "episodes": null,
+      "startDate": "2026-10-03",
+      "studios": [
+        "Studio Pierrot"
+      ],
+      "genres": [
+        "Action",
+        "Adventure",
+        "Comedy",
+        "Fantasy"
+      ],
+      "officialUrl": "http://bclover.jp/",
+      "sourceUrl": "https://anilist.co/anime/195604",
+      "color": "#f1a143",
+      "continuing": false,
+      "popularity": 96761,
+      "image": null
+    },
+    {
+      "id": "al-185874",
+      "anilistId": 185874,
+      "slug": "185874-bleach-sennen-kessen-hen-kashin-tan",
+      "title": "BLEACH 千年血戦篇-禍進譚-",
+      "titleRomaji": "BLEACH: Sennen Kessen-hen - Kashin-tan",
+      "titleEnglish": "BLEACH: Thousand-Year Blood War - The Calamity",
+      "format": "TV",
+      "episodes": 10,
+      "startDate": "2026-07-25",
+      "studios": [
+        "PIERROT FILMS"
+      ],
+      "genres": [
+        "Action",
+        "Adventure",
+        "Supernatural"
+      ],
+      "officialUrl": "https://bleach-anime.com/",
+      "sourceUrl": "https://anilist.co/anime/185874",
+      "color": null,
+      "continuing": true,
+      "popularity": 95345,
+      "image": null
+    },
+    {
+      "id": "al-180136",
+      "anilistId": 180136,
+      "slug": "180136-tsuihou-sareta-tensei-juukishi-wa-game-chishiki-de-musou-sur",
+      "title": "追放された転生重騎士はゲーム知識で無双する",
+      "titleRomaji": "Tsuihou Sareta Tensei Juukishi wa Game Chishiki de Musou Suru",
+      "titleEnglish": "The Exiled Heavy Knight Knows How to Game the System",
+      "format": "TV",
+      "episodes": 26,
+      "startDate": "2026-07-03",
+      "studios": [
+        "GoHands"
+      ],
+      "genres": [
+        "Action",
+        "Fantasy"
+      ],
+      "officialUrl": "https://sh-anime.shochiku.co.jp/jukishi-anime/",
+      "sourceUrl": "https://anilist.co/anime/180136",
+      "color": "#50c9fe",
+      "continuing": true,
+      "popularity": 71727,
+      "image": null
+    },
+    {
+      "id": "al-159042",
+      "anilistId": 159042,
+      "slug": "159042-tensei-shitara-ken-deshita-2nd-season",
+      "title": "転生したら剣でした 第2期",
+      "titleRomaji": "Tensei Shitara Ken Deshita 2nd Season",
+      "titleEnglish": "Reincarnated as a Sword Season 2",
+      "format": "ONA",
+      "episodes": 12,
+      "startDate": "2026-10-01",
+      "studios": [
+        "C2C"
+      ],
+      "genres": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "officialUrl": "https://tenken-anime.com/",
+      "sourceUrl": "https://anilist.co/anime/159042",
+      "color": "#f19328",
+      "continuing": false,
+      "popularity": 51787,
+      "image": null
+    },
+    {
+      "id": "al-189123",
+      "anilistId": 189123,
+      "slug": "189123-ao-no-hako-season-2",
+      "title": "アオのハコ Season２",
+      "titleRomaji": "Ao no Hako Season 2",
+      "titleEnglish": "Blue Box Season 2",
+      "format": "TV",
+      "episodes": 12,
+      "startDate": "2026-10-04",
+      "studios": [
+        "Electric Circus"
+      ],
+      "genres": [
+        "Romance",
+        "Slice of Life",
+        "Sports"
+      ],
+      "officialUrl": "https://aonohako-anime.com/",
+      "sourceUrl": "https://anilist.co/anime/189123",
+      "color": "#e4ae50",
+      "continuing": false,
+      "popularity": 49252,
+      "image": null
+    },
+    {
+      "id": "al-212888",
+      "anilistId": 212888,
+      "slug": "212888-tempal-item-no-chikara",
+      "title": "テムパル～アイテムの力～",
+      "titleRomaji": "Tempal: Item no Chikara",
+      "titleEnglish": "Overgeared",
+      "format": "ONA",
+      "episodes": 12,
+      "startDate": "2026-09-27",
+      "studios": [
+        "J.C.STAFF"
+      ],
+      "genres": [
+        "Action",
+        "Adventure",
+        "Comedy",
+        "Fantasy"
+      ],
+      "officialUrl": "https://tempal-anime.net/",
+      "sourceUrl": "https://anilist.co/anime/212888",
+      "color": "#f19335",
+      "continuing": false,
+      "popularity": 46295,
+      "image": null
+    },
+    {
+      "id": "al-210482",
+      "anilistId": 210482,
+      "slug": "210482-jojo-no-kimyou-na-bouken-steel-ball-run-2nd-3rd-stage",
+      "title": "ジョジョの奇妙な冒険 スティール・ボール・ラン 2nd＆3rd STAGE",
+      "titleRomaji": "JoJo no Kimyou na Bouken: Steel Ball Run - 2nd & 3rd STAGE",
+      "titleEnglish": "STEEL BALL RUN JoJo's Bizarre Adventure 2nd - 3rd STAGE",
+      "format": "ONA",
+      "episodes": 11,
+      "startDate": "2026-09-25",
+      "studios": [
+        "david production"
+      ],
+      "genres": [
+        "Action",
+        "Adventure",
+        "Drama",
+        "Mystery",
+        "Supernatural"
+      ],
+      "officialUrl": "https://jojo-portal-anime.com/sbr/",
+      "sourceUrl": "https://anilist.co/anime/210482",
+      "color": "#f1ae50",
+      "continuing": false,
+      "popularity": 45249,
+      "image": null
+    },
+    {
+      "id": "al-205909",
+      "anilistId": 205909,
+      "slug": "205909-hotaru-no-yomeiri",
+      "title": "ホタルの嫁入り",
+      "titleRomaji": "Hotaru no Yomeiri",
+      "titleEnglish": "Firefly Wedding",
+      "format": "TV",
+      "episodes": 12,
+      "startDate": "2026-10-09",
+      "studios": [
+        "david production"
+      ],
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "officialUrl": "https://hotaru-anime.com/",
+      "sourceUrl": "https://anilist.co/anime/205909",
+      "color": "#aebb35",
+      "continuing": false,
+      "popularity": 42521,
+      "image": null
+    },
+    {
+      "id": "al-191656",
+      "anilistId": 191656,
+      "slug": "191656-seitokai-ni-mo-ana-wa-aru",
+      "title": "生徒会にも穴はある！",
+      "titleRomaji": "Seitokai ni mo Ana wa Aru!",
+      "titleEnglish": "Even the Student Council Has Its Holes!",
+      "format": "TV",
+      "episodes": 12,
+      "startDate": "2026-10-04",
+      "studios": [
+        "Passione"
+      ],
+      "genres": [
+        "Comedy",
+        "Ecchi",
+        "Slice of Life"
+      ],
+      "officialUrl": "https://nama-anaru.com/",
+      "sourceUrl": "https://anilist.co/anime/191656",
+      "color": "#5dbbe4",
+      "continuing": false,
+      "popularity": 42262,
+      "image": null
+    },
+    {
+      "id": "al-207329",
+      "anilistId": 207329,
+      "slug": "207329-tsuihou-sareta-cheat-fuyo-majutsushi-wa-kimama-na-second-lif",
+      "title": "追放されたチート付与魔術師は気ままなセカンドライフを謳歌する。　～俺は武器だけじゃなく、あらゆるものに『強化ポイント』を付与できるし、俺の意思でいつでも効果を解除できるけど、残った人たち大丈夫？～",
+      "titleRomaji": "Tsuihou Sareta Cheat Fuyo Majutsushi wa Kimama na Second Life wo Ouka Suru.: Ore wa Buki dake ja Naku, Arayuru Mono ni \"Kyouka Point\" wo Fuyo Dekiru shi, Ore no Ishi de Itsudemo Kouka wo Kaijo Dekiru kedo, Nokotta Hitotachi Daijoubu?",
+      "titleEnglish": "The Laid-Off Cheat-Granting Mage Enjoys a Second Lease on Life",
+      "format": "TV",
+      "episodes": null,
+      "startDate": "2026-10-07",
+      "studios": [
+        "P.A.WORKS"
+      ],
+      "genres": [
+        "Adventure",
+        "Comedy",
+        "Fantasy",
+        "Slice of Life"
+      ],
+      "officialUrl": "https://sh-anime.shochiku.co.jp/chiifuyo-anime/",
+      "sourceUrl": "https://anilist.co/anime/207329",
+      "color": "#f1e4c9",
+      "continuing": false,
+      "popularity": 37259,
+      "image": null
+    },
+    {
+      "id": "al-178083",
+      "anilistId": 178083,
+      "slug": "178083-tokyo-revengers-santen-sensou-hen",
+      "title": "東京リベンジャーズ 三天戦争編",
+      "titleRomaji": "Tokyo Revengers: Santen Sensou-hen",
+      "titleEnglish": "Tokyo Revengers: War of the Three Titans Arc",
+      "format": "TV",
+      "episodes": 13,
+      "startDate": "2026-10-03",
+      "studios": [
+        "LIDENFILMS"
+      ],
+      "genres": [
+        "Action",
+        "Drama",
+        "Romance",
+        "Supernatural"
+      ],
+      "officialUrl": "https://tokyo-revengers-anime.com/",
+      "sourceUrl": "https://anilist.co/anime/178083",
+      "color": "#c99350",
+      "continuing": false,
+      "popularity": 36077,
+      "image": null
+    },
+    {
+      "id": "al-213805",
+      "anilistId": 213805,
+      "slug": "213805-koori-no-jouheki-2nd-season",
+      "title": "氷の城壁 第2期",
+      "titleRomaji": "Koori no Jouheki 2nd Season",
+      "titleEnglish": "The Ramparts of Ice Season 2",
+      "format": "TV",
+      "episodes": null,
+      "startDate": "2026-10-01",
+      "studios": [
+        "Studio KAI"
+      ],
+      "genres": [
+        "Comedy",
+        "Drama",
+        "Romance",
+        "Slice of Life"
+      ],
+      "officialUrl": "https://korinojoheki-pr.com/",
+      "sourceUrl": "https://anilist.co/anime/213805",
+      "color": "#e4a143",
+      "continuing": false,
+      "popularity": 35864,
+      "image": null
+    },
+    {
+      "id": "al-172192",
+      "anilistId": 172192,
+      "slug": "172192-kikansha-no-mahou-wa-tokubetsu-desu-2nd-season",
+      "title": "帰還者の魔法は特別です 第2期",
+      "titleRomaji": "Kikansha no Mahou wa Tokubetsu desu 2nd Season",
+      "titleEnglish": "A Returner's Magic Should be Special Season 2",
+      "format": "TV",
+      "episodes": null,
+      "startDate": "2026-10-08",
+      "studios": [
+        "Arvo Animation"
+      ],
+      "genres": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "officialUrl": "https://returners-magic.com/",
+      "sourceUrl": "https://anilist.co/anime/172192",
+      "color": "#f19328",
+      "continuing": false,
+      "popularity": 31575,
+      "image": null
+    },
+    {
+      "id": "al-185756",
+      "anilistId": 185756,
+      "slug": "185756-tensei-kizoku-kantei-skill-de-nariagaru-3rd-season",
+      "title": "転生貴族、鑑定スキルで成り上がる 第3期",
+      "titleRomaji": "Tensei Kizoku, Kantei Skill de Nariagaru 3rd Season",
+      "titleEnglish": "As a Reincarnated Aristocrat, I'll Use My Appraisal Skill to Rise in the World Season 3",
+      "format": "TV",
+      "episodes": null,
+      "startDate": "2026-09-27",
+      "studios": [
+        "GeyeG Pictures"
+      ],
+      "genres": [
+        "Adventure",
+        "Fantasy"
+      ],
+      "officialUrl": "https://kanteiskill.com/",
+      "sourceUrl": "https://anilist.co/anime/185756",
+      "color": "#d6f1c9",
+      "continuing": false,
+      "popularity": 27370,
+      "image": null
+    },
+    {
+      "id": "al-206814",
+      "anilistId": 206814,
+      "slug": "206814-dragon-ball-super-beerus",
+      "title": "ドラゴンボール超 ビルス",
+      "titleRomaji": "Dragon Ball Super: Beerus",
+      "titleEnglish": "Dragon Ball Super: Beerus",
+      "format": "TV",
+      "episodes": null,
+      "startDate": "2026-10-11",
+      "studios": [
+        "Toei Animation"
+      ],
+      "genres": [
+        "Action",
+        "Adventure",
+        "Sci-Fi"
+      ],
+      "officialUrl": "https://dragonball-super.com/",
+      "sourceUrl": "https://anilist.co/anime/206814",
+      "color": "#e48643",
+      "continuing": false,
+      "popularity": 26662,
+      "image": null
+    },
+    {
+      "id": "al-207191",
+      "anilistId": 207191,
+      "slug": "207191-doumo-suki-na-hito-ni-horegusuri-wo-irai-sareta-majo-desu",
+      "title": "どうも、好きな人に惚れ薬を依頼された魔女です。",
+      "titleRomaji": "Doumo, Suki na Hito ni Horegusuri wo Irai Sareta Majo desu.",
+      "titleEnglish": "Hello, I am a Witch and my Crush Wants me to Make a Love Potion!",
+      "format": "TV",
+      "episodes": 12,
+      "startDate": "2026-10-05",
+      "studios": [
+        "diomedéa"
+      ],
+      "genres": [
+        "Fantasy",
+        "Romance"
+      ],
+      "officialUrl": "https://horemajo-anime.com/",
+      "sourceUrl": "https://anilist.co/anime/207191",
+      "color": "#aed6e4",
+      "continuing": false,
+      "popularity": 25955,
+      "image": null
+    },
+    {
+      "id": "al-152677",
+      "anilistId": 152677,
+      "slug": "152677-tantei-wa-mou-shindeiru-season-2",
+      "title": "探偵はもう、死んでいる。Season2",
+      "titleRomaji": "Tantei wa mou, Shindeiru. Season 2",
+      "titleEnglish": "The Detective Is Already Dead Season 2",
+      "format": "TV",
+      "episodes": 13,
+      "startDate": "2026-10-07",
+      "studios": [
+        "ENGI"
+      ],
+      "genres": [
+        "Comedy",
+        "Drama",
+        "Mystery",
+        "Romance",
+        "Supernatural"
+      ],
+      "officialUrl": "https://tanmoshi-anime.jp/Season2/",
+      "sourceUrl": "https://anilist.co/anime/152677",
+      "color": null,
+      "continuing": false,
+      "popularity": 25585,
+      "image": null
+    },
+    {
+      "id": "al-206949",
+      "anilistId": 206949,
+      "slug": "206949-kyouran-reijou-nia-liston",
+      "title": "凶乱令嬢ニア・リストン",
+      "titleRomaji": "Kyouran Reijou Nia Liston",
+      "titleEnglish": "Nia Liston: The Merciless Maiden",
+      "format": "TV",
+      "episodes": 25,
+      "startDate": "2026-10-06",
+      "studios": [
+        "KONAMI animation"
+      ],
+      "genres": [
+        "Action",
+        "Fantasy"
+      ],
+      "officialUrl": "https://kyoranreijo-pr.com/",
+      "sourceUrl": "https://anilist.co/anime/206949",
+      "color": "#f15dbb",
+      "continuing": false,
+      "popularity": 25127,
+      "image": null
+    },
+    {
+      "id": "al-208025",
+      "anilistId": 208025,
+      "slug": "208025-dark-summoner-to-dekiteiru",
+      "title": "ダークサモナーとデキている",
+      "titleRomaji": "Dark Summoner to Dekiteiru",
+      "titleEnglish": "I'm Dating a Dark Summoner",
+      "format": "TV_SHORT",
+      "episodes": 12,
+      "startDate": "2026-10-05",
+      "studios": [
+        "AtoriE",
+        "Nyan Pollution-ω-"
+      ],
+      "genres": [
+        "Comedy",
+        "Ecchi",
+        "Fantasy",
+        "Romance"
+      ],
+      "officialUrl": "http://darksummoner.deregula.com/",
+      "sourceUrl": "https://anilist.co/anime/208025",
+      "color": "#fff1ae",
+      "continuing": false,
+      "popularity": 25066,
+      "image": null
+    },
+    {
+      "id": "al-191788",
+      "anilistId": 191788,
+      "slug": "191788-aoashi-2nd-season",
+      "title": "アオアシ 第2期",
+      "titleRomaji": "Aoashi 2nd Season",
+      "titleEnglish": "Aoashi Season 2",
+      "format": "TV",
+      "episodes": 24,
+      "startDate": "2026-10-04",
+      "studios": [
+        "TMS Entertainment"
+      ],
+      "genres": [
+        "Sports"
+      ],
+      "officialUrl": "https://aoashi-pr.com/",
+      "sourceUrl": "https://anilist.co/anime/191788",
+      "color": "#e4ae50",
+      "continuing": false,
+      "popularity": 25005,
+      "image": null
+    },
+    {
+      "id": "al-186541",
+      "anilistId": 186541,
+      "slug": "186541-mezametara-saikyou-soubi-to-uchuusen-mochi-datta-node-ikkoda",
+      "title": "目覚めたら最強装備と宇宙船持ちだったので、一戸建て目指して傭兵として自由に生きたい",
+      "titleRomaji": "Mezametara Saikyou Soubi to Uchuusen-mochi datta node, Ikkodate Mezashite Youhei to shite Jiyuu ni Ikitai",
+      "titleEnglish": "Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!",
+      "format": "TV",
+      "episodes": 13,
+      "startDate": "2026-10-04",
+      "studios": [
+        "studio A-CAT"
+      ],
+      "genres": [
+        "Action",
+        "Comedy",
+        "Drama",
+        "Mecha",
+        "Romance",
+        "Sci-Fi"
+      ],
+      "officialUrl": "https://saikyosoubi.com/",
+      "sourceUrl": "https://anilist.co/anime/186541",
+      "color": "#d6bb78",
+      "continuing": false,
+      "popularity": 24745,
+      "image": null
+    },
+    {
+      "id": "al-213457",
+      "anilistId": 213457,
+      "slug": "213457-fool-night",
+      "title": "フールナイト",
+      "titleRomaji": "Fool Night",
+      "titleEnglish": "Fool Night",
+      "format": "ONA",
+      "episodes": null,
+      "startDate": "2026-11-26",
+      "studios": [
+        "Shaft",
+        "Sunrise"
+      ],
+      "genres": [
+        "Drama",
+        "Psychological",
+        "Sci-Fi",
+        "Thriller"
+      ],
+      "officialUrl": "https://www.foolnight.com/",
+      "sourceUrl": "https://anilist.co/anime/213457",
+      "color": "#93281a",
+      "continuing": false,
+      "popularity": 24034,
+      "image": null
+    },
+    {
+      "id": "al-204389",
+      "anilistId": 204389,
+      "slug": "204389-yasei-no-last-boss-ga-arawareta-2nd-season",
+      "title": "野生のラスボスが現れた！ 第2期",
+      "titleRomaji": "Yasei no Last Boss ga Arawareta! 2nd Season",
+      "titleEnglish": "A Wild Last Boss Appeared! Season 2",
+      "format": "ONA",
+      "episodes": null,
+      "startDate": "2026-09-26",
+      "studios": [
+        "WAO World"
+      ],
+      "genres": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "officialUrl": "https://lastboss-anime.com/",
+      "sourceUrl": "https://anilist.co/anime/204389",
+      "color": "#e45dc9",
+      "continuing": false,
+      "popularity": 22664,
+      "image": null
+    },
+    {
+      "id": "al-169581",
+      "anilistId": 169581,
+      "slug": "169581-magical-explorer-eroge-no-yuujin-chara-ni-tensei-shitakedo-g",
+      "title": "マジカル★エクスプローラー　エロゲの友人キャラに転生したけど、ゲーム知識使って自由に生きる",
+      "titleRomaji": "Magical★Explorer: Eroge no Yuujin Chara ni Tensei Shitakedo, Game Chishiki Tsukatte Jiyuu ni Ikiru",
+      "titleEnglish": "Magical Explorer",
+      "format": "ONA",
+      "episodes": 13,
+      "startDate": "2026-09-27",
+      "studios": [
+        "WHITE FOX"
+      ],
+      "genres": [
+        "Action",
+        "Adventure",
+        "Ecchi",
+        "Fantasy",
+        "Romance"
+      ],
+      "officialUrl": "https://majieku.com/",
+      "sourceUrl": "https://anilist.co/anime/169581",
+      "color": "#f1a150",
+      "continuing": false,
+      "popularity": 22042,
+      "image": null
+    },
+    {
+      "id": "al-204011",
+      "anilistId": 204011,
+      "slug": "204011-psy-en",
+      "title": "PSYREN -サイレン-",
+      "titleRomaji": "PSYЯEN",
+      "titleEnglish": "PSYREN",
+      "format": "TV",
+      "episodes": null,
+      "startDate": "2026-10-05",
+      "studios": [
+        "Satelight"
+      ],
+      "genres": [
+        "Action",
+        "Adventure",
+        "Sci-Fi"
+      ],
+      "officialUrl": "https://psyren-anime.com/",
+      "sourceUrl": "https://anilist.co/anime/204011",
+      "color": "#0dd6e4",
+      "continuing": false,
+      "popularity": 21232,
+      "image": null
+    },
+    {
+      "id": "al-202250",
+      "anilistId": 202250,
+      "slug": "202250-kashita-maryoku-wa-revo-barai-de-kyousei-choushuu",
+      "title": "貸した魔力は【リボ払い】で強制徴収",
+      "titleRomaji": "Kashita Maryoku wa [Revo Barai] de Kyousei Choushuu",
+      "titleEnglish": "Magic Repo Man: Dumped by My Party, I’ll Cash In With a Cute Support Fairy to Become the Strongest!",
+      "format": "TV",
+      "episodes": null,
+      "startDate": "2026-10-04",
+      "studios": [
+        "SynergySP"
+      ],
+      "genres": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "officialUrl": "https://revo-anime.com",
+      "sourceUrl": "https://anilist.co/anime/202250",
+      "color": "#bbe45d",
+      "continuing": false,
+      "popularity": 21109,
+      "image": null
+    },
+    {
+      "id": "al-209502",
+      "anilistId": 209502,
+      "slug": "209502-shiotaiou-no-satou-san-ga-ore-ni-dake-amai",
+      "title": "塩対応の佐藤さんが俺にだけ甘い",
+      "titleRomaji": "Shiotaiou no Satou-san ga Ore ni dake Amai",
+      "titleEnglish": "The Cold Sato-san is Only Sweet to Me",
+      "format": "TV",
+      "episodes": 12,
+      "startDate": "2026-10-06",
+      "studios": [
+        "Tezuka Productions"
+      ],
+      "genres": [
+        "Comedy",
+        "Romance"
+      ],
+      "officialUrl": "https://shioama-anime.com",
+      "sourceUrl": "https://anilist.co/anime/209502",
+      "color": "#f1bb50",
+      "continuing": false,
+      "popularity": 19934,
+      "image": null
+    },
+    {
+      "id": "al-212503",
+      "anilistId": 212503,
+      "slug": "212503-hyouken-no-majutsushi-ga-sekai-wo-suberu-ii",
+      "title": "冰剣の魔術師が世界を統べるⅡ",
+      "titleRomaji": "Hyouken no Majutsushi ga Sekai wo Suberu II",
+      "titleEnglish": "The Iceblade Sorcerer Shall Rule the World II",
+      "format": "TV",
+      "episodes": null,
+      "startDate": "2026-10-09",
+      "studios": [
+        "Zero-G"
+      ],
+      "genres": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "officialUrl": "https://hyouken-anime.com/",
+      "sourceUrl": "https://anilist.co/anime/212503",
+      "color": "#4378e4",
+      "continuing": false,
+      "popularity": 19895,
+      "image": null
+    },
+    {
+      "id": "al-209219",
+      "anilistId": 209219,
+      "slug": "209219-tensei-goblin-dakedo-shitsumon-aru",
+      "title": "転生ゴブリンだけど質問ある？",
+      "titleRomaji": "Tensei Goblin Dakedo Shitsumon Aru?",
+      "titleEnglish": "So What's Wrong with Getting Reborn as a Goblin?",
+      "format": "ONA",
+      "episodes": null,
+      "startDate": "2026-10-05",
+      "studios": [
+        "BAKKKA"
+      ],
+      "genres": [
+        "Action",
+        "Adventure",
+        "Comedy",
+        "Drama",
+        "Fantasy",
+        "Romance"
+      ],
+      "officialUrl": "https://tengobu-anime.com/",
+      "sourceUrl": "https://anilist.co/anime/209219",
+      "color": "#a1c950",
+      "continuing": false,
+      "popularity": 19719,
+      "image": null
+    },
+    {
+      "id": "al-204650",
+      "anilistId": 204650,
+      "slug": "204650-tougen-anki-nikko-kegon-no-taki-hen",
+      "title": "桃源暗鬼 日光・華厳の滝編",
+      "titleRomaji": "Tougen Anki: Nikko・Kegon no Taki-hen",
+      "titleEnglish": "TOUGEN ANKI: Nikko Kegon Falls Arc",
+      "format": "TV",
+      "episodes": 12,
+      "startDate": "2026-10-02",
+      "studios": [
+        "Studio Hibari"
+      ],
+      "genres": [
+        "Action",
+        "Mystery",
+        "Supernatural"
+      ],
+      "officialUrl": "https://tougenanki-anime-global.com/",
+      "sourceUrl": "https://anilist.co/anime/204650",
+      "color": "#4393e4",
+      "continuing": false,
+      "popularity": 19046,
+      "image": null
+    },
+    {
+      "id": "al-206401",
+      "anilistId": 206401,
+      "slug": "206401-fx-senshi-kurumi-chan",
+      "title": "FX戦士くるみちゃん",
+      "titleRomaji": "FX Senshi Kurumi-chan",
+      "titleEnglish": "FX Fighter Kurumi-chan",
+      "format": "TV",
+      "episodes": 12,
+      "startDate": "2026-10-01",
+      "studios": [
+        "Passione"
+      ],
+      "genres": [
+        "Drama",
+        "Slice of Life"
+      ],
+      "officialUrl": "https://fxkurumi-info.com/",
+      "sourceUrl": "https://anilist.co/anime/206401",
+      "color": "#f1d678",
+      "continuing": false,
+      "popularity": 17408,
+      "image": null
+    },
+    {
+      "id": "al-187402",
+      "anilistId": 187402,
+      "slug": "187402-tensei-shita-dai-seijo-wa-seijo-de-aru-koto-wo-hita-kakusu",
+      "title": "転生した大聖女は、聖女であることをひた隠す",
+      "titleRomaji": "Tensei shita Dai Seijo wa, Seijo de Aru Koto wo Hita Kakusu",
+      "titleEnglish": "A Tale of the Secret Saint",
+      "format": "ONA",
+      "episodes": null,
+      "startDate": "2026-10-03",
+      "studios": [
+        "Felix Film"
+      ],
+      "genres": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "officialUrl": "https://daiseijo-anime.com/",
+      "sourceUrl": "https://anilist.co/anime/187402",
+      "color": "#50bbe4",
+      "continuing": false,
+      "popularity": 17345,
+      "image": null
+    },
+    {
+      "id": "al-209872",
+      "anilistId": 209872,
+      "slug": "209872-ranma-1-2-2024-3rd-season",
+      "title": "らんま1/2 (2024) 第3期",
+      "titleRomaji": "Ranma 1/2 (2024) 3rd Season",
+      "titleEnglish": "Ranma1/2 (2024) Season 3",
+      "format": "TV",
+      "episodes": null,
+      "startDate": "2026-10-04",
+      "studios": [
+        "MAPPA"
+      ],
+      "genres": [
+        "Action",
+        "Comedy",
+        "Romance"
+      ],
+      "officialUrl": "https://ranma-pr.com/",
+      "sourceUrl": "https://anilist.co/anime/209872",
+      "color": "#e4bb5d",
+      "continuing": false,
+      "popularity": 16988,
+      "image": null
+    },
+    {
+      "id": "al-211778",
+      "anilistId": 211778,
+      "slug": "211778-sekai-saikyou-no-majo-hajimemashita",
+      "title": "世界最強の魔女、始めました",
+      "titleRomaji": "Sekai Saikyou no Majo, Hajimemashita",
+      "titleEnglish": "The World's Strongest Witch",
+      "format": "TV",
+      "episodes": null,
+      "startDate": "2026-10-07",
+      "studios": [
+        "Bridge",
+        "Aisle"
+      ],
+      "genres": [
+        "Action",
+        "Comedy",
+        "Fantasy"
+      ],
+      "officialUrl": "https://sekamajo-anime.com/",
+      "sourceUrl": "https://anilist.co/anime/211778",
+      "color": "#5dbbf1",
+      "continuing": false,
+      "popularity": 16198,
+      "image": null
+    },
+    {
+      "id": "al-205896",
+      "anilistId": 205896,
+      "slug": "205896-shinja-zero-no-megami-sama-to-hajimeru-isekai-kouryaku",
+      "title": "信者ゼロの女神サマと始める異世界攻略",
+      "titleRomaji": "Shinja Zero no Megami-sama to Hajimeru Isekai Kouryaku",
+      "titleEnglish": "Full Clearing Another World under a Goddess with Zero Believers",
+      "format": "TV",
+      "episodes": null,
+      "startDate": "2026-10-11",
+      "studios": [
+        "HORNETS"
+      ],
+      "genres": [
+        "Adventure",
+        "Fantasy"
+      ],
+      "officialUrl": "https://zero-believers-anime.com/",
+      "sourceUrl": "https://anilist.co/anime/205896",
+      "color": "#5dbbe4",
+      "continuing": false,
+      "popularity": 15881,
+      "image": null
+    },
+    {
+      "id": "al-180894",
+      "anilistId": 180894,
+      "slug": "180894-romelia-senki-maou-wo-taoshita-nochi-mo-jinrui-yabasou-dakar",
+      "title": "ロメリア戦記 〜魔王を倒した後も人類やばそうだから軍隊組織した〜",
+      "titleRomaji": "Romelia Senki: Maou wo Taoshita nochi mo Jinrui Yabasou dakara Guntai Soshiki Shita",
+      "titleEnglish": "Romelia War Chronicle",
+      "format": "ONA",
+      "episodes": 24,
+      "startDate": "2026-10-03",
+      "studios": [
+        "Atra"
+      ],
+      "genres": [
+        "Adventure",
+        "Drama",
+        "Fantasy"
+      ],
+      "officialUrl": "https://romelia-senki.com/",
+      "sourceUrl": "https://anilist.co/anime/180894",
+      "color": "#4393e4",
+      "continuing": false,
+      "popularity": 15377,
+      "image": null
+    },
+    {
+      "id": "al-198727",
+      "anilistId": 198727,
+      "slug": "198727-chitose-kun-wa-ramune-bin-no-naka-part-2",
+      "title": "千歳くんはラムネ瓶のなか 2クール",
+      "titleRomaji": "Chitose-kun wa Ramune Bin no Naka Part 2",
+      "titleEnglish": "Chitose Is in the Ramune Bottle 2nd Cour",
+      "format": "TV",
+      "episodes": 11,
+      "startDate": "2026-10-13",
+      "studios": [
+        "feel."
+      ],
+      "genres": [
+        "Comedy",
+        "Romance"
+      ],
+      "officialUrl": "https://chiramune.com/",
+      "sourceUrl": "https://anilist.co/anime/198727",
+      "color": "#bbe4f1",
+      "continuing": false,
+      "popularity": 14807,
+      "image": null
+    },
+    {
+      "id": "al-176314",
+      "anilistId": 176314,
+      "slug": "176314-sasaki-to-pii-chan-season-2",
+      "title": "佐々木とピーちゃん シーズン２",
+      "titleRomaji": "Sasaki to Pii-chan Season 2",
+      "titleEnglish": "Sasaki and Peeps Season 2",
+      "format": "TV",
+      "episodes": 12,
+      "startDate": "2026-10-07",
+      "studios": [
+        "SILVER LINK."
+      ],
+      "genres": [
+        "Comedy",
+        "Fantasy",
+        "Mahou Shoujo"
+      ],
+      "officialUrl": "https://sasapi-anime.com/",
+      "sourceUrl": "https://anilist.co/anime/176314",
+      "color": "#1a78d6",
+      "continuing": false,
+      "popularity": 14564,
+      "image": null
+    },
+    {
+      "id": "al-195571",
+      "anilistId": 195571,
+      "slug": "195571-shuiro-no-kamen",
+      "title": "朱色の仮面",
+      "titleRomaji": "Shuiro no Kamen",
+      "titleEnglish": "The Vermilion Mask",
+      "format": "TV",
+      "episodes": null,
+      "startDate": "2026-10-10",
+      "studios": [
+        "100studio"
+      ],
+      "genres": [
+        "Action",
+        "Drama",
+        "Supernatural"
+      ],
+      "officialUrl": "https://the-vermilion-mask.com/",
+      "sourceUrl": "https://anilist.co/anime/195571",
+      "color": "#e4bb5d",
+      "continuing": false,
+      "popularity": 14548,
+      "image": null
+    },
+    {
+      "id": "al-186742",
+      "anilistId": 186742,
+      "slug": "186742-toaru-anbu-no-item",
+      "title": "とある暗部の少女共棲",
+      "titleRomaji": "Toaru Anbu no ITEM",
+      "titleEnglish": "A Certain Dark Item",
+      "format": "TV",
+      "episodes": null,
+      "startDate": "2026-10-09",
+      "studios": [
+        "J.C.STAFF"
+      ],
+      "genres": [
+        "Action",
+        "Sci-Fi"
+      ],
+      "officialUrl": "https://toaru-project.com/item/",
+      "sourceUrl": "https://anilist.co/anime/186742",
+      "color": "#35f1a1",
+      "continuing": false,
+      "popularity": 14101,
+      "image": null
+    },
+    {
+      "id": "al-203490",
+      "anilistId": 203490,
+      "slug": "203490-uchi-no-otouto-domo-ga-sumimasen",
+      "title": "うちの弟どもがすみません",
+      "titleRomaji": "Uchi no Otouto-domo ga Sumimasen",
+      "titleEnglish": "Please Excuse My Younger Brothers",
+      "format": "TV",
+      "episodes": 24,
+      "startDate": "2026-07-04",
+      "studios": [
+        "Lay-duce"
+      ],
+      "genres": [
+        "Comedy",
+        "Romance",
+        "Slice of Life"
+      ],
+      "officialUrl": "https://uchioto-anime.com/",
+      "sourceUrl": "https://anilist.co/anime/203490",
+      "color": "#fef150",
+      "continuing": true,
+      "popularity": 12544,
+      "image": null
+    },
+    {
+      "id": "al-211877",
+      "anilistId": 211877,
+      "slug": "211877-kanojo-no-tomodachi",
+      "title": "彼女の友達",
+      "titleRomaji": "Kanojo no Tomodachi",
+      "titleEnglish": "My Girlfriend's Friend",
+      "format": "TV_SHORT",
+      "episodes": 12,
+      "startDate": "2026-10-05",
+      "studios": [
+        "Quad"
+      ],
+      "genres": [
+        "Drama",
+        "Ecchi",
+        "Romance"
+      ],
+      "officialUrl": "https://kanojo-no-tomodachi.deregula.com/",
+      "sourceUrl": "https://anilist.co/anime/211877",
+      "color": "#f1a15d",
+      "continuing": false,
+      "popularity": 12400,
+      "image": null
+    },
+    {
+      "id": "al-200455",
+      "anilistId": 200455,
+      "slug": "200455-yowaki-max-reijou-nano-ni-ratsuwan-konyakusha-sama-no-kake-n",
+      "title": "弱気MAX令嬢なのに、辣腕婚約者様の賭けに乗ってしまった",
+      "titleRomaji": "Yowaki MAX Reijou Nano ni, Ratsuwan Konyakusha-sama no Kake ni Notte Shimatta",
+      "titleEnglish": "Even Though I'm a Super Timid Noble Girl, I Accepted the Bet From My Cunning Fiancé",
+      "format": "TV",
+      "episodes": 12,
+      "startDate": "2026-10-04",
+      "studios": [
+        "Jumondou"
+      ],
+      "genres": [
+        "Comedy",
+        "Fantasy",
+        "Romance"
+      ],
+      "officialUrl": "https://yowaki-max-anime.com/",
+      "sourceUrl": "https://anilist.co/anime/200455",
+      "color": "#e45d35",
+      "continuing": false,
+      "popularity": 12057,
+      "image": null
+    },
+    {
+      "id": "al-207809",
+      "anilistId": 207809,
+      "slug": "207809-sora-wa-akai-kawa-no-hotori",
+      "title": "天は赤い河のほとり",
+      "titleRomaji": "Sora wa Akai Kawa no Hotori",
+      "titleEnglish": "Red River",
+      "format": "TV",
+      "episodes": 24,
+      "startDate": "2026-07-08",
+      "studios": [
+        "Tatsunoko Production"
+      ],
+      "genres": [
+        "Action",
+        "Adventure",
+        "Drama",
+        "Fantasy",
+        "Romance"
+      ],
+      "officialUrl": "https://www.vap.co.jp/sorahaakaikawanohotori/",
+      "sourceUrl": "https://anilist.co/anime/207809",
+      "color": "#e4bb5d",
+      "continuing": true,
+      "popularity": 11743,
+      "image": null
+    },
+    {
+      "id": "al-178868",
+      "anilistId": 178868,
+      "slug": "178868-magic-knight-rayearth-2026",
+      "title": "魔法騎士レイアース (2026)",
+      "titleRomaji": "Magic Knight Rayearth (2026)",
+      "titleEnglish": "Magic Knight Rayearth (2026)",
+      "format": "TV",
+      "episodes": null,
+      "startDate": "2026-10-07",
+      "studios": [
+        "E&H Production"
+      ],
+      "genres": [
+        "Adventure",
+        "Fantasy",
+        "Mahou Shoujo",
+        "Mecha"
+      ],
+      "officialUrl": "https://rayearth-anime.com/",
+      "sourceUrl": "https://anilist.co/anime/178868",
+      "color": "#e4a150",
+      "continuing": false,
+      "popularity": 11348,
+      "image": null
+    },
+    {
+      "id": "al-199007",
+      "anilistId": 199007,
+      "slug": "199007-zombie-sagashitemasu",
+      "title": "#ゾンビさがしてます",
+      "titleRomaji": "#Zombie Sagashitemasu",
+      "titleEnglish": "#I'm Looking For a Zombie",
+      "format": "TV",
+      "episodes": 12,
+      "startDate": "2026-10-03",
+      "studios": [
+        "Studio Comet"
+      ],
+      "genres": [
+        "Action",
+        "Comedy",
+        "Horror",
+        "Mystery",
+        "Supernatural"
+      ],
+      "officialUrl": "https://zommasu.com/",
+      "sourceUrl": "https://anilist.co/anime/199007",
+      "color": "#5078e4",
+      "continuing": false,
+      "popularity": 10429,
+      "image": null
+    },
+    {
+      "id": "al-213657",
+      "anilistId": 213657,
+      "slug": "213657-yozakura-san-chi-no-daisakusen-2nd-season-part-2",
+      "title": "夜桜さんちの大作戦 第2期 第2クール",
+      "titleRomaji": "Yozakura-san Chi no Daisakusen 2nd Season Part 2",
+      "titleEnglish": "Mission: Yozakura Family Season 2 Part 2",
+      "format": "TV",
+      "episodes": null,
+      "startDate": "2026-10-11",
+      "studios": [
+        "SILVER LINK."
+      ],
+      "genres": [
+        "Action",
+        "Comedy",
+        "Romance"
+      ],
+      "officialUrl": "https://mission-yozakura-family.com/",
+      "sourceUrl": "https://anilist.co/anime/213657",
+      "color": "#5dbbe4",
+      "continuing": false,
+      "popularity": 9350,
+      "image": null
+    },
+    {
+      "id": "al-209499",
+      "anilistId": 209499,
+      "slug": "209499-tank-chair-sensha-isu",
+      "title": "TANK CHAIR-戦車椅子-",
+      "titleRomaji": "TANK CHAIR: Sensha Isu",
+      "titleEnglish": "TANK CHAIR",
+      "format": "TV",
+      "episodes": null,
+      "startDate": "2026-10-04",
+      "studios": [
+        "POLYGON PICTURES"
+      ],
+      "genres": [
+        "Action",
+        "Sci-Fi"
+      ],
+      "officialUrl": "https://www.tankchair-anime.com/en/index.php",
+      "sourceUrl": "https://anilist.co/anime/209499",
+      "color": "#e4c95d",
+      "continuing": false,
+      "popularity": 8406,
+      "image": null
+    },
+    {
+      "id": "al-160803",
+      "anilistId": 160803,
+      "slug": "160803-mahou-shoujo-ikusei-keikaku-restart",
+      "title": "魔法少女育成計画 restart",
+      "titleRomaji": "Mahou Shoujo Ikusei Keikaku: restart",
+      "titleEnglish": "MAGICAL GIRL RAISING PROJECT restart",
+      "format": "TV",
+      "episodes": null,
+      "startDate": "2026-10-06",
+      "studios": [
+        "SynergySP"
+      ],
+      "genres": [
+        "Action",
+        "Fantasy",
+        "Mahou Shoujo",
+        "Thriller"
+      ],
+      "officialUrl": "https://mahoiku.com/anime/restart",
+      "sourceUrl": "https://anilist.co/anime/160803",
+      "color": "#e4ae93",
+      "continuing": false,
+      "popularity": 7244,
+      "image": null
+    },
+    {
+      "id": "al-187316",
+      "anilistId": 187316,
+      "slug": "187316-gensou-suikoden",
+      "title": "幻想水滸伝",
+      "titleRomaji": "Gensou Suikoden",
+      "titleEnglish": null,
+      "format": "TV",
+      "episodes": 23,
+      "startDate": "2026-10-03",
+      "studios": [
+        "KONAMI animation"
+      ],
+      "genres": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "officialUrl": "https://suikoden-anime.com/",
+      "sourceUrl": "https://anilist.co/anime/187316",
+      "color": "#e4bb5d",
+      "continuing": false,
+      "popularity": 7129,
+      "image": null
+    },
+    {
+      "id": "al-206774",
+      "anilistId": 206774,
+      "slug": "206774-mouse-cursor-de-genjitsu-wo-sousa-dekiru-you-ni-natta-node-o",
+      "title": "マウスカーソルで現実を操作できるようになったので、女の子をいっぱいクリックしまーす",
+      "titleRomaji": "Mouse Cursor de Genjitsu wo Sousa Dekiru You ni Natta node, Onnanoko wo Ippai Click Shimasu",
+      "titleEnglish": "Now That I Can Control Reality With A Mouse Cursor, I'm Gonna Click Away On The Girls!",
+      "format": "TV_SHORT",
+      "episodes": 8,
+      "startDate": "2026-10-05",
+      "studios": [
+        "Studio Houkiboshi"
+      ],
+      "genres": [
+        "Ecchi",
+        "Romance",
+        "Supernatural"
+      ],
+      "officialUrl": "https://maukuri.af-original.com/en",
+      "sourceUrl": "https://anilist.co/anime/206774",
+      "color": "#f1c9ae",
+      "continuing": false,
+      "popularity": 6977,
+      "image": null
+    },
+    {
+      "id": "al-200294",
+      "anilistId": 200294,
+      "slug": "200294-choujun-choujou-senpai",
+      "title": "超巡！超条先輩",
+      "titleRomaji": "Choujun! Choujou Senpai",
+      "titleEnglish": "Super Psychic Policeman Chojo",
+      "format": "TV",
+      "episodes": 12,
+      "startDate": "2026-10-06",
+      "studios": [
+        "Arvo Animation"
+      ],
+      "genres": [
+        "Comedy",
+        "Slice of Life"
+      ],
+      "officialUrl": "https://chojun-anime.com/",
+      "sourceUrl": "https://anilist.co/anime/200294",
+      "color": null,
+      "continuing": false,
+      "popularity": 6823,
+      "image": null
+    },
+    {
+      "id": "al-212799",
+      "anilistId": 212799,
+      "slug": "212799-marronnier-oukoku-no-shichinin-no-kishi",
+      "title": "マロニエ王国の七人の騎士",
+      "titleRomaji": "Marronnier Oukoku no Shichinin no Kishi",
+      "titleEnglish": "The Seven Knights of the Marronnier Kingdom",
+      "format": "TV",
+      "episodes": 20,
+      "startDate": "2026-10-03",
+      "studios": [
+        "J.C.STAFF"
+      ],
+      "genres": [
+        "Comedy",
+        "Fantasy",
+        "Romance"
+      ],
+      "officialUrl": "https://www.nhk-character.com/chara/marronnier/",
+      "sourceUrl": "https://anilist.co/anime/212799",
+      "color": "#e46b5d",
+      "continuing": false,
+      "popularity": 6727,
+      "image": null
+    },
+    {
+      "id": "al-203473",
+      "anilistId": 203473,
+      "slug": "203473-kyoufu-collector",
+      "title": "恐怖コレクター",
+      "titleRomaji": "Kyoufu Collector",
+      "titleEnglish": "HORROR COLLECTOR",
+      "format": "TV",
+      "episodes": 12,
+      "startDate": "2026-10-10",
+      "studios": [
+        "Studio Palette"
+      ],
+      "genres": [
+        "Horror",
+        "Mystery",
+        "Supernatural"
+      ],
+      "officialUrl": "https://www.nhk-character.com/chara/kyoufucollector",
+      "sourceUrl": "https://anilist.co/anime/203473",
+      "color": null,
+      "continuing": false,
+      "popularity": 6111,
+      "image": null
+    },
+    {
+      "id": "al-203275",
+      "anilistId": 203275,
+      "slug": "203275-demons-crest",
+      "title": "デモンズ・クレスト",
+      "titleRomaji": "Demons' Crest",
+      "titleEnglish": "Devils' Crest",
+      "format": "TV",
+      "episodes": null,
+      "startDate": "2026-11-06",
+      "studios": [
+        "Production I.G"
+      ],
+      "genres": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "officialUrl": "https://demonscrest-anime.com/",
+      "sourceUrl": "https://anilist.co/anime/203275",
+      "color": "#0da1e4",
+      "continuing": false,
+      "popularity": 5761,
+      "image": null
+    },
+    {
+      "id": "al-209463",
+      "anilistId": 209463,
+      "slug": "209463-kanata-kara",
+      "title": "彼方から",
+      "titleRomaji": "Kanata Kara",
+      "titleEnglish": "From Far Away",
+      "format": "TV",
+      "episodes": null,
+      "startDate": "2026-10-05",
+      "studios": [
+        "Studio DEEN"
+      ],
+      "genres": [
+        "Adventure",
+        "Fantasy",
+        "Romance"
+      ],
+      "officialUrl": "https://kanatakara-anime.com/",
+      "sourceUrl": "https://anilist.co/anime/209463",
+      "color": "#5d6be4",
+      "continuing": false,
+      "popularity": 5736,
+      "image": null
+    },
+    {
+      "id": "al-202079",
+      "anilistId": 202079,
+      "slug": "202079-oji-san-wa-kawaii-mono-ga-osuki",
+      "title": "おじさんはカワイイものがお好き。",
+      "titleRomaji": "Oji-san wa Kawaii Mono ga Osuki.",
+      "titleEnglish": "Uncle's Obsession with Cute Things",
+      "format": "TV",
+      "episodes": 12,
+      "startDate": "2026-10-04",
+      "studios": [
+        "LIDENFILMS"
+      ],
+      "genres": [
+        "Comedy",
+        "Slice of Life"
+      ],
+      "officialUrl": "https://ojikawa.com/",
+      "sourceUrl": "https://anilist.co/anime/202079",
+      "color": "#f1ae35",
+      "continuing": false,
+      "popularity": 5344,
+      "image": null
+    },
+    {
+      "id": "al-209562",
+      "anilistId": 209562,
+      "slug": "209562-vertex-force",
+      "title": "バーテックスフォース",
+      "titleRomaji": "Vertex Force",
+      "titleEnglish": "VERTEX FORCE",
+      "format": "TV",
+      "episodes": null,
+      "startDate": "2026-10-03",
+      "studios": [
+        "Shogakukan Music & Digital Entertainment"
+      ],
+      "genres": [
+        "Action",
+        "Mecha"
+      ],
+      "officialUrl": "https://vertexforce.jp/",
+      "sourceUrl": "https://anilist.co/anime/209562",
+      "color": "#e4d650",
+      "continuing": false,
+      "popularity": 4625,
+      "image": null
+    },
+    {
+      "id": "al-199594",
+      "anilistId": 199594,
+      "slug": "199594-tetsuryou-meet-with-tetsudou-musume",
+      "title": "てつりょー！meet with 鉄道むすめ",
+      "titleRomaji": "Tetsuryou! meet with Tetsudou Musume",
+      "titleEnglish": "TETSURYO! Meet With Tetsudou Musume",
+      "format": "TV",
+      "episodes": 12,
+      "startDate": "2026-10-09",
+      "studios": [
+        "East Fish Studio"
+      ],
+      "genres": [
+        "Slice of Life"
+      ],
+      "officialUrl": "https://tetsuryo-anime.com/",
+      "sourceUrl": "https://anilist.co/anime/199594",
+      "color": "#1a78d6",
+      "continuing": false,
+      "popularity": 4024,
+      "image": null
+    },
+    {
+      "id": "al-188034",
+      "anilistId": 188034,
+      "slug": "188034-girls-und-panzer-motto-love-love-sakusen-desu",
+      "title": "ガールズ＆パンツァー もっとらぶらぶ作戦です！",
+      "titleRomaji": "Girls und Panzer: Motto Love Love Sakusen desu!",
+      "titleEnglish": null,
+      "format": "TV",
+      "episodes": 12,
+      "startDate": "2026-10-08",
+      "studios": [
+        "P.A.WORKS",
+        "Actas"
+      ],
+      "genres": [
+        "Comedy"
+      ],
+      "officialUrl": "https://gup-mottolovelove.jp/",
+      "sourceUrl": "https://anilist.co/anime/188034",
+      "color": "#5086e4",
+      "continuing": false,
+      "popularity": 4011,
+      "image": null
+    },
+    {
+      "id": "al-213658",
+      "anilistId": 213658,
+      "slug": "213658-diamond-no-ace-act-ii-second-season-part-2",
+      "title": "ダイヤのA actⅡ -Second Season- 第2クール",
+      "titleRomaji": "Diamond no Ace act II: Second Season Part 2",
+      "titleEnglish": "Ace of the Diamond act II -Second Season-",
+      "format": "TV",
+      "episodes": null,
+      "startDate": "2026-10-11",
+      "studios": [
+        "OLM"
+      ],
+      "genres": [
+        "Sports"
+      ],
+      "officialUrl": "https://diaace.com/",
+      "sourceUrl": "https://anilist.co/anime/213658",
+      "color": "#1a93d6",
+      "continuing": false,
+      "popularity": 3981,
+      "image": null
+    },
+    {
+      "id": "al-199426",
+      "anilistId": 199426,
+      "slug": "199426-hotel-inhumans-2nd-season",
+      "title": "ホテル・インヒューマンズ 第2期",
+      "titleRomaji": "Hotel Inhumans 2nd Season",
+      "titleEnglish": "HOTEL INHUMANS Season 2",
+      "format": "TV",
+      "episodes": 13,
+      "startDate": "2026-10-04",
+      "studios": [
+        "Bridge"
+      ],
+      "genres": [
+        "Action",
+        "Drama"
+      ],
+      "officialUrl": "https://hotel-inhumans.com/",
+      "sourceUrl": "https://anilist.co/anime/199426",
+      "color": "#e45d78",
+      "continuing": false,
+      "popularity": 3532,
+      "image": null
+    },
+    {
+      "id": "al-213068",
+      "anilistId": 213068,
+      "slug": "213068-juu-u-mujin-dandivine",
+      "title": "獣王武神ダンデヴァイン",
+      "titleRomaji": "Juuоu Mujin Dandivine",
+      "titleEnglish": "Dandivine",
+      "format": "TV",
+      "episodes": null,
+      "startDate": "2026-10-08",
+      "studios": [
+        "LIDENFILMS",
+        "Kayac Animation"
+      ],
+      "genres": [
+        "Action",
+        "Mecha"
+      ],
+      "officialUrl": "https://gattaishin.com/dandivine/",
+      "sourceUrl": "https://anilist.co/anime/213068",
+      "color": "#5daef1",
+      "continuing": false,
+      "popularity": 2825,
+      "image": null
+    },
+    {
+      "id": "al-215835",
+      "anilistId": 215835,
+      "slug": "215835-umayuru-full-gate",
+      "title": "うまゆるふるげ〜と!",
+      "titleRomaji": "Umayuru: Full Gate!",
+      "titleEnglish": null,
+      "format": "ONA",
+      "episodes": 26,
+      "startDate": "2026-09-27",
+      "studios": [
+        "AtoriE"
+      ],
+      "genres": [
+        "Comedy",
+        "Slice of Life"
+      ],
+      "officialUrl": null,
+      "sourceUrl": "https://anilist.co/anime/215835",
+      "color": "#43aef1",
+      "continuing": false,
+      "popularity": 2771,
+      "image": null
+    },
+    {
+      "id": "al-179876",
+      "anilistId": 179876,
+      "slug": "179876-dark-machine-the-animation",
+      "title": "DARK MACHINE -The Animation-",
+      "titleRomaji": "DARK MACHINE: The Animation",
+      "titleEnglish": "DARK MACHINE THE ANIMATION",
+      "format": "TV",
+      "episodes": 11,
+      "startDate": "2026-10-14",
+      "studios": [
+        "Production +h"
+      ],
+      "genres": [
+        "Mecha",
+        "Sci-Fi"
+      ],
+      "officialUrl": "https://www.fujitv.co.jp/darkmachine_anime/",
+      "sourceUrl": "https://anilist.co/anime/179876",
+      "color": "#286ba1",
+      "continuing": false,
+      "popularity": 2738,
+      "image": null
+    },
+    {
+      "id": "al-216895",
+      "anilistId": 216895,
+      "slug": "216895-aoki-denshou-welsh-shedar",
+      "title": "蒼き伝承 ウェルシュ&シェーダー",
+      "titleRomaji": "Aoki Denshou: Welsh & Shedar",
+      "titleEnglish": "Welsh & Shedar",
+      "format": "TV",
+      "episodes": 12,
+      "startDate": "2026-10-02",
+      "studios": [
+        "Studio Massket"
+      ],
+      "genres": [
+        "Adventure",
+        "Fantasy"
+      ],
+      "officialUrl": "https://welshandshedar-anime.com/",
+      "sourceUrl": "https://anilist.co/anime/216895",
+      "color": "#5d93f1",
+      "continuing": false,
+      "popularity": 2569,
+      "image": null
+    },
+    {
+      "id": "al-212144",
+      "anilistId": 212144,
+      "slug": "212144-kizu-darake-seijo-yori-houfuku-wo-komete-season2",
+      "title": "傷だらけ聖女より報復をこめて Season2",
+      "titleRomaji": "Kizu darake Seijo yori Houfuku wo Komete Season2",
+      "titleEnglish": "With Vengeance, Sincerely, Your Broken Saintess Season 2",
+      "format": "TV_SHORT",
+      "episodes": null,
+      "startDate": "2026-10-02",
+      "studios": [
+        "Imageworks Studio",
+        "Imagica Infos"
+      ],
+      "genres": [
+        "Fantasy",
+        "Romance"
+      ],
+      "officialUrl": "https://animationid.com/kizudarakeseijo2/",
+      "sourceUrl": "https://anilist.co/anime/212144",
+      "color": "#aeaee4",
+      "continuing": false,
+      "popularity": 2179,
+      "image": null
+    },
+    {
+      "id": "al-216557",
+      "anilistId": 216557,
+      "slug": "216557-keroro-gunsou",
+      "title": "ケロロ軍曹☆",
+      "titleRomaji": "Keroro Gunsou☆",
+      "titleEnglish": "KERORO☆",
+      "format": "TV",
+      "episodes": null,
+      "startDate": "2026-10-03",
+      "studios": [
+        "Bandai Namco Pictures"
+      ],
+      "genres": [
+        "Comedy",
+        "Sci-Fi"
+      ],
+      "officialUrl": "https://www.bn-pictures.co.jp/keroro-anime/tv/",
+      "sourceUrl": "https://anilist.co/anime/216557",
+      "color": "#f1e450",
+      "continuing": false,
+      "popularity": 1830,
+      "image": null
+    },
+    {
+      "id": "al-187990",
+      "anilistId": 187990,
+      "slug": "187990-battle-spirits-re-zekkai-no-kuu",
+      "title": "Battle Spirits [Re] 絶界の空",
+      "titleRomaji": "Battle Spirits [Re] Zekkai no Kuu",
+      "titleEnglish": "Battle Spirits [Re] Zekkai No Ku",
+      "format": "TV",
+      "episodes": null,
+      "startDate": "2026-10-06",
+      "studios": [
+        "Bandai Namco Pictures"
+      ],
+      "genres": [
+        "Action",
+        "Fantasy"
+      ],
+      "officialUrl": "https://www.bn-pictures.co.jp/battlespirits/",
+      "sourceUrl": "https://anilist.co/anime/187990",
+      "color": "#f17835",
+      "continuing": false,
+      "popularity": 1826,
+      "image": null
+    },
+    {
+      "id": "al-214703",
+      "anilistId": 214703,
+      "slug": "214703-ghost-meets-gal",
+      "title": "ごーすと・みーつ・ぎゃる！",
+      "titleRomaji": "Ghost Meets Gal!",
+      "titleEnglish": null,
+      "format": "TV_SHORT",
+      "episodes": null,
+      "startDate": "2026-09-05",
+      "studios": [
+        "AtoriE"
+      ],
+      "genres": [
+        "Comedy",
+        "Fantasy"
+      ],
+      "officialUrl": "https://cf-vanguard.com/anime-ghost_meets_gal/",
+      "sourceUrl": "https://anilist.co/anime/214703",
+      "color": "#5daee4",
+      "continuing": true,
+      "popularity": 1583,
+      "image": null
+    },
+    {
+      "id": "al-199068",
+      "anilistId": 199068,
+      "slug": "199068-shin-tennis-no-ouji-sama-u-17-world-cup-kesshou-member-kette",
+      "title": "新テニスの王子様 U-17 WORLD CUP 決勝メンバー決定戦",
+      "titleRomaji": "Shin Tennis no Ouji-sama: U-17 WORLD CUP Kesshou Member Ketteisen",
+      "titleEnglish": "The Prince of Tennis II U-17 WORLD CUP: Final Member Selection Match",
+      "format": "TV",
+      "episodes": null,
+      "startDate": "2026-10-01",
+      "studios": [
+        "M.S.C"
+      ],
+      "genres": [
+        "Action",
+        "Comedy",
+        "Sports"
+      ],
+      "officialUrl": "http://tenipuri.jp/u17/selection-match/",
+      "sourceUrl": "https://anilist.co/anime/199068",
+      "color": "#d61a1a",
+      "continuing": false,
+      "popularity": 1472,
+      "image": null
+    },
+    {
+      "id": "al-209032",
+      "anilistId": 209032,
+      "slug": "209032-mahou-no-shimai-luluttolilly-part-2",
+      "title": "魔法の姉妹ルルットリリィ 第2クール",
+      "titleRomaji": "Mahou no Shimai LuluttoLilly Part 2",
+      "titleEnglish": "Magical Sisters LuluttoLilly Part 2",
+      "format": "TV",
+      "episodes": null,
+      "startDate": "2026-10-04",
+      "studios": [
+        "Studio Pierrot"
+      ],
+      "genres": [
+        "Mahou Shoujo",
+        "Music"
+      ],
+      "officialUrl": "https://www.luluttolilly.com/",
+      "sourceUrl": "https://anilist.co/anime/209032",
+      "color": "#e45df1",
+      "continuing": false,
+      "popularity": 1420,
+      "image": null
+    },
+    {
+      "id": "al-194207",
+      "anilistId": 194207,
+      "slug": "194207-pan-dorobou",
+      "title": "パンどろぼう",
+      "titleRomaji": "Pan Dorobou",
+      "titleEnglish": null,
+      "format": "TV_SHORT",
+      "episodes": null,
+      "startDate": "2026-10-02",
+      "studios": [
+        "Shin-Ei Animation"
+      ],
+      "genres": [
+        "Comedy"
+      ],
+      "officialUrl": "https://pandorobo-anime.com/",
+      "sourceUrl": "https://anilist.co/anime/194207",
+      "color": "#e4a10d",
+      "continuing": false,
+      "popularity": 534,
+      "image": null
+    },
+    {
+      "id": "al-214536",
+      "anilistId": 214536,
+      "slug": "214536-cardfight-vanguard-divinez-unmei-seisen-hen",
+      "title": "カードファイト!! ヴァンガード Divinez 運命星戦編",
+      "titleRomaji": "Cardfight!! Vanguard Divinez Unmei Seisen-hen",
+      "titleEnglish": "CARDFIGHT!! VANGUARD Divinez: Parallactic Fate",
+      "format": "TV",
+      "episodes": 3,
+      "startDate": "2026-11-07",
+      "studios": [
+        "Kinema Citrus",
+        "Gift-o’-Animation",
+        "Studio JEMI"
+      ],
+      "genres": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "officialUrl": "https://anime.cf-vanguard.com/vgd/",
+      "sourceUrl": "https://anilist.co/anime/214536",
+      "color": "#f14335",
+      "continuing": false,
+      "popularity": 435,
+      "image": null
+    },
+    {
+      "id": "al-213506",
+      "anilistId": 213506,
+      "slug": "213506-hokuto-no-ken-kenou-gun-zako-tachi-no-banka-part-2",
+      "title": "北斗の拳 拳王軍ザコたちの挽歌 第2クール",
+      "titleRomaji": "Hokuto no Ken: Kenou-gun Zako-tachi no Banka Part 2",
+      "titleEnglish": null,
+      "format": "TV_SHORT",
+      "episodes": null,
+      "startDate": "2026-07-06",
+      "studios": [
+        "Doraku"
+      ],
+      "genres": [
+        "Comedy"
+      ],
+      "officialUrl": "https://zakoban.com/",
+      "sourceUrl": "https://anilist.co/anime/213506",
+      "color": "#febb50",
+      "continuing": true,
+      "popularity": 352,
+      "image": null
+    },
+    {
+      "id": "al-209709",
+      "anilistId": 209709,
+      "slug": "209709-sirotan",
+      "title": "しろたん",
+      "titleRomaji": "Sirotan",
+      "titleEnglish": null,
+      "format": "TV",
+      "episodes": null,
+      "startDate": "2026-10-03",
+      "studios": [
+        "Lesprit"
+      ],
+      "genres": [],
+      "officialUrl": "https://www.tv-asahi.co.jp/sirotan/",
+      "sourceUrl": "https://anilist.co/anime/209709",
+      "color": "#5dbbe4",
+      "continuing": false,
+      "popularity": 327,
+      "image": null
+    },
+    {
+      "id": "al-208367",
+      "anilistId": 208367,
+      "slug": "208367-duel-masters-lost-danzai-no-shounen",
+      "title": "Duel Masters LOST ～断罪の少年～",
+      "titleRomaji": "Duel Masters LOST: Danzai no Shounen",
+      "titleEnglish": null,
+      "format": "ONA",
+      "episodes": 4,
+      "startDate": "2026-10-09",
+      "studios": [
+        "J.C.STAFF",
+        "Shogakukan Music & Digital Entertainment"
+      ],
+      "genres": [
+        "Adventure",
+        "Supernatural"
+      ],
+      "officialUrl": "https://www.shopro.co.jp/anime/duelmasters_lost/",
+      "sourceUrl": "https://anilist.co/anime/208367",
+      "color": "#3578bb",
+      "continuing": false,
+      "popularity": 316,
+      "image": null
+    },
+    {
+      "id": "al-217782",
+      "anilistId": 217782,
+      "slug": "217782-kanojo-no-tomodachi-mini-anime-gekijou",
+      "title": "彼女の友達 ミニアニメ劇場",
+      "titleRomaji": "Kanojo no Tomodachi Mini Anime Gekijou",
+      "titleEnglish": "My Girlfriend's Friend Mini Anime",
+      "format": "TV_SHORT",
+      "episodes": 12,
+      "startDate": "2026-10-05",
+      "studios": [],
+      "genres": [
+        "Drama",
+        "Ecchi",
+        "Romance"
+      ],
+      "officialUrl": "https://kanojo-no-tomodachi.deregula.com/",
+      "sourceUrl": "https://anilist.co/anime/217782",
+      "color": "#ff9335",
+      "continuing": false,
+      "popularity": 309,
+      "image": null
+    }
+  ]
+}

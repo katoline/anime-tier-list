@@ -1,0 +1,107 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import AdSlot from '../../../../components/AdSlot.astro';
+import AnimeCard from '../../../../components/AnimeCard.astro';
+import Breadcrumb from '../../../../components/Breadcrumb.astro';
+import Distribution from '../../../../components/Distribution.astro';
+import ListCards from '../../../../components/ListCards.astro';
+import { getAnime, getSeason, seasonPath, toCardData } from '../../../../lib/data';
+import { nextSeason, previousSeason, seasonId, seasonLabel, isSeasonName } from '../../../../lib/season';
+import { breadcrumbLd } from '../../../../lib/seo';
+import { getSeasonStats, listPublic } from '../../../../lib/tierlists-db';
+
+const { year, season: seasonName } = Astro.params;
+if (!year || !seasonName || !isSeasonName(seasonName)) return new Response(null, { status: 404 });
+const ref = { year: Number(year), season: seasonName };
+const season = getSeason(seasonId(ref));
+if (!season) return new Response(null, { status: 404 });
+
+const label = seasonLabel(ref);
+const [stats, lists] = await Promise.all([getSeasonStats(season.id), listPublic({ seasonId: season.id, limit: 12 })]);
+const ranked = stats
+  .map((s) => ({ ...s, anime: getAnime(s.animeId) }))
+  .filter((s) => s.anime)
+  .slice(0, 30);
+const prev = getSeason(seasonId(previousSeason(ref)));
+const next = getSeason(seasonId(nextSeason(ref)));
+Astro.response.headers.set('X-Edge-Cache', '600');
+
+const crumbs = [{ name: 'ホーム', href: '/' }, { name: '季節一覧', href: '/seasons' }, { name: label }];
+const jsonLd = [
+  breadcrumbLd(Astro.site!, crumbs),
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: `${label}一覧`,
+    numberOfItems: season.items.length,
+    itemListElement: season.items.map((a, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: new URL(`/anime/${a.slug}`, Astro.site).href,
+      name: a.title,
+    })),
+  },
+];
+const description = `${label}（${season.items.length}作品）の一覧とティア表。みんなのティア表から集計した評価ランキングを見たり、自分のティア表を作ってSNSで共有できます。`;
+---
+<Base title={`${label} ティア表・評価ランキング`} description={description} jsonLd={jsonLd}>
+  <div class="container layout-with-side">
+    <div>
+      <Breadcrumb items={crumbs} />
+      <h1>{label} ティア表・評価ランキング</h1>
+      <p class="muted">{season.items.length} 作品。作品一覧は毎週自動で更新しています（最終更新 {new Date(season.updatedAt).toLocaleDateString('ja-JP', { timeZone: 'Asia/Tokyo' })}）。</p>
+      <div class="row">
+        <a class="btn btn-primary" href={`${seasonPath(ref)}/edit`}>{label}のティア表を作る</a>
+      </div>
+
+      <h2>みんなの評価ランキング</h2>
+      {ranked.length === 0 ? (
+        <p class="muted">公開されたティア表が集まると、ここに評価ランキングが表示されます。</p>
+      ) : (
+        <table class="stats-table">
+          <thead>
+            <tr><th>順位</th><th>作品</th><th>分布（S〜F）</th><th class="num">平均</th><th class="num">票数</th></tr>
+          </thead>
+          <tbody>
+            {ranked.map((s, i) => (
+              <tr>
+                <td class="num">{i + 1}</td>
+                <td><a href={`/anime/${s.anime!.slug}`}>{s.anime!.title}</a></td>
+                <td><Distribution distribution={s.distribution} /></td>
+                <td class="num">{s.average.toFixed(1)}</td>
+                <td class="num">{s.count}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+      <p class="muted small">平均は公開ティア表での位置を 0〜100 点に換算したものです（最上段 100 点、最下段 0 点）。</p>
+
+      <AdSlot variant="inline" />
+
+      <h2>{label}一覧</h2>
+      <ul class="anime-grid">
+        {season.items.map((a, i) => (
+          <li>
+            <a href={`/anime/${a.slug}`}>
+              <AnimeCard anime={toCardData(a)} eager={i < 6} />
+              <div class="name">{a.title}</div>
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <h2>{label}の新着ティア表</h2>
+      <ListCards lists={lists} />
+      <p><a href={`/lists?season=${season.id}`}>もっと見る →</a></p>
+
+      <div class="row" style="margin-top:2rem">
+        {prev && <a class="btn btn-sm" href={seasonPath(prev)}>← {seasonLabel(previousSeason(ref))}</a>}
+        {next && <a class="btn btn-sm" href={seasonPath(next)}>{seasonLabel(nextSeason(ref))} →</a>}
+      </div>
+    </div>
+    <aside class="side">
+      <AdSlot variant="side" minHeight={600} />
+    </aside>
+  </div>
+</Base>

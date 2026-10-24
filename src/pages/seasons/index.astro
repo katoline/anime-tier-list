@@ -1,0 +1,30 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { getSeasons, seasonPath } from '../../lib/data';
+import { parseSeasonId, seasonLabel } from '../../lib/season';
+import { breadcrumbLd } from '../../lib/seo';
+
+export const prerender = true;
+
+const seasons = getSeasons();
+const crumbs = [{ name: 'ホーム', href: '/' }, { name: '季節一覧' }];
+---
+<Base title="季節一覧" description="季節ごとのアニメ一覧とティア表。冬・春・夏・秋のアニメから選んでティア表を作れます。" jsonLd={breadcrumbLd(Astro.site!, crumbs)}>
+  <div class="container">
+    <Breadcrumb items={crumbs} />
+    <h1>季節一覧</h1>
+    <ul class="list-cards">
+      {seasons.map((s) => (
+        <li>
+          <a href={seasonPath(s)}>
+            <div class="card">
+              <p class="title">{seasonLabel(parseSeasonId(s.id)!)}</p>
+              <p class="muted small" style="margin:0">{s.items.length} 作品</p>
+            </div>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</Base>

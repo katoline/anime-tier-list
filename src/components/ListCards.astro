@@ -1,0 +1,35 @@
+---
+import type { TierListSummary } from '../lib/tierlists-db';
+import { parseSeasonId, seasonLabel } from '../lib/season';
+
+interface Props {
+  lists: TierListSummary[];
+  showAuthor?: boolean;
+  empty?: string;
+}
+const { lists, showAuthor = true, empty = 'まだ公開されたティア表はありません。' } = Astro.props;
+const fmt = new Intl.DateTimeFormat('ja-JP', { timeZone: 'Asia/Tokyo', year: 'numeric', month: 'numeric', day: 'numeric' });
+---
+{lists.length === 0 ? (
+  <p class="muted">{empty}</p>
+) : (
+  <ul class="list-cards">
+    {lists.map((l) => {
+      const ref = parseSeasonId(l.seasonId);
+      return (
+        <li>
+          <a href={`/t/${l.id}`}>
+            <div class="card">
+              <p class="title">{l.title}</p>
+              <p class="muted small" style="margin:0">
+                {ref ? seasonLabel(ref) : l.seasonId} ・ {l.rankedCount} 作品
+                {showAuthor && <> ・ {l.displayName}</>}
+              </p>
+              <p class="muted small" style="margin:0">{fmt.format(l.updatedAt)} 更新</p>
+            </div>
+          </a>
+        </li>
+      );
+    })}
+  </ul>
+)}

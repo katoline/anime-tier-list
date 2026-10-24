@@ -1,0 +1,29 @@
+name: PR の作成者チェック
+
+# 公開リポジトリのため、許可した人とボット以外からの PR は自動で閉じる。
+# pull_request_target で動くが、PR のコードはチェックアウトも実行もしない（コメントして閉じるだけ）。
+on:
+  pull_request_target:
+    types: [opened, reopened]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: 許可されていない作成者の PR を閉じる
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          AUTHOR: ${{ github.event.pull_request.user.login }}
+          AUTHOR_TYPE: ${{ github.event.pull_request.user.type }}
+          # 許可する GitHub ユーザー（カンマ区切り）。Variables の PR_ALLOWED_AUTHORS で変更できる
+          ALLOWED: ${{ vars.PR_ALLOWED_AUTHORS || 'seino914' }}
+          NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          if [ "$AUTHOR_TYPE" = "Bot" ]; then echo "ボットの PR は許可"; exit 0; fi
+          if printf ',%s,' "$ALLOWED" | tr -d ' ' | grep -qi ",$AUTHOR,"; then echo "$AUTHOR は許可済み"; exit 0; fi
+          gh pr close "$NUMBER" --comment "ご提案ありがとうございます。このリポジトリは外部からのプルリクエストを受け付けていないため、自動で閉じました。不具合やご意見はサイトのお問い合わせフォームからお知らせください。"

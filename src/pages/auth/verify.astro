@@ -1,0 +1,39 @@
+---
+import Base from '../../layouts/Base.astro';
+
+export const prerender = true;
+---
+<Base title="ログインの確認" noindex>
+  <div class="container" style="max-width:480px">
+    <h1>ログインの確認</h1>
+    <div class="card stack">
+      <p>下のボタンを押すとログインします。</p>
+      <button id="confirm" class="btn btn-primary" type="button" style="width:100%">ログインする</button>
+      <p id="msg" class="small error" role="alert"></p>
+    </div>
+  </div>
+  <script>
+    const token = new URLSearchParams(location.search).get('token');
+    const button = document.getElementById('confirm') as HTMLButtonElement;
+    const msg = document.getElementById('msg')!;
+    // リンクのトークンを履歴や Referer に残さない
+    history.replaceState(null, '', location.pathname);
+    button.addEventListener('click', async () => {
+      button.disabled = true;
+      const res = await fetch('/api/auth/email/verify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token }),
+      }).catch(() => null);
+      const json = (res ? await res.json().catch(() => ({})) : {}) as { error?: string; next?: string };
+      if (res?.ok) location.href = json.next ?? '/me';
+      else {
+        msg.textContent = `${json.error ?? 'ログインできませんでした'} `;
+        const a = document.createElement('a');
+        a.href = '/login';
+        a.textContent = 'ログインページへ';
+        msg.appendChild(a);
+      }
+    });
+  </script>
+</Base>

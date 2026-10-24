@@ -1,0 +1,27 @@
+---
+import { ADSENSE_CLIENT } from '../lib/config';
+
+interface Props {
+  /** AdSense の広告ユニット ID（PUBLIC_ADSENSE_SLOT_* で上書き可能） */
+  slot?: string;
+  /** レイアウトずれを防ぐための予約高さ */
+  minHeight?: number;
+  variant?: 'banner' | 'side' | 'inline';
+}
+const { slot = import.meta.env.PUBLIC_ADSENSE_SLOT_DEFAULT ?? '', minHeight = 100, variant = 'banner' } = Astro.props;
+const enabled = Boolean(ADSENSE_CLIENT && slot);
+---
+{enabled && (
+  <aside class={`ad-slot ad-${variant}`} style={`min-height:${minHeight + 16}px`} aria-label="広告">
+    <div class="ad-label">広告</div>
+    <ins
+      class="adsbygoogle"
+      style={`display:block;min-height:${minHeight}px`}
+      data-ad-client={ADSENSE_CLIENT}
+      data-ad-slot={slot}
+      data-ad-format={variant === 'side' ? 'vertical' : 'auto'}
+      data-full-width-responsive="true"
+    ></ins>
+    <script is:inline>(window.adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </aside>
+)}

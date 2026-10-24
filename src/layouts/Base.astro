@@ -1,0 +1,104 @@
+---
+import '../styles/global.css';
+import { ADSENSE_CLIENT, SITE_DESCRIPTION, SITE_NAME } from '../lib/config';
+import { currentSeason, seasonPath } from '../lib/data';
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** 正規 URL のパス（省略時は現在のパス） */
+  canonicalPath?: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article';
+  noindex?: boolean;
+  jsonLd?: unknown;
+  /** エディタのようにフッター広告などを出さないページ */
+  plain?: boolean;
+}
+
+const { title, description = SITE_DESCRIPTION, canonicalPath, ogImage = '/og/site.png', ogType = 'website', noindex = false, jsonLd, plain = false } = Astro.props;
+const fullTitle = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} - 今期アニメのティア表を作って共有`;
+const site = Astro.site!;
+const canonical = new URL(canonicalPath ?? Astro.url.pathname, site).href;
+const ogImageUrl = new URL(ogImage, site).href;
+const season = currentSeason();
+const year = new Date().getFullYear();
+---
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:title" content={title ?? SITE_NAME} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#4f46e5" />
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd).replace(/</g, '\\u003c')} />}
+    {ADSENSE_CLIENT && <meta name="google-adsense-account" content={ADSENSE_CLIENT} />}
+    <slot name="head" />
+  </head>
+  <body>
+    <a class="visually-hidden" href="#main">本文へ移動</a>
+    <header class="site-header">
+      <div class="container">
+        <a class="logo" href="/">アニメ<span>ティア表</span>メーカー</a>
+        <nav class="nav" aria-label="メインメニュー">
+          {season && <a href={seasonPath(season)}>今期</a>}
+          <a class="hide-sm" href="/seasons">季節一覧</a>
+          <a class="hide-sm" href="/lists">みんなのティア表</a>
+          <a href="/login" data-auth-link class="btn btn-sm">ログイン</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="container">
+        <nav aria-label="フッターメニュー">
+          <a href="/about">このサイトについて</a>
+          <a href="/terms">利用規約</a>
+          <a href="/privacy">プライバシーポリシー</a>
+          <a href="/takedown">掲載・削除のご依頼</a>
+        </nav>
+        <p>作品データ: <a href="https://anilist.co/" rel="noopener">AniList</a>。作品名・画像の著作権は各権利者に帰属します。</p>
+        <p>© {year} {SITE_NAME}</p>
+      </div>
+    </footer>
+    <script is:inline>
+      // ログイン状態はページをキャッシュしたまま表示できるよう、クッキーから表示だけ切り替える
+      (function () {
+        var m = document.cookie.match(/(?:^|; )li=([^;]+)/);
+        if (!m) return;
+        var a = document.querySelector('[data-auth-link]');
+        if (a) { a.textContent = 'マイページ'; a.setAttribute('href', '/me'); }
+      })();
+    </script>
+    {!plain && ADSENSE_CLIENT && (
+      <script is:inline define:vars={{ client: ADSENSE_CLIENT }}>
+        // 広告は表示を邪魔しないよう、読み込み完了後に遅らせて読み込む
+        window.addEventListener('load', function () {
+          setTimeout(function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.crossOrigin = 'anonymous';
+            s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + client;
+            document.head.appendChild(s);
+          }, 1500);
+        });
+      </script>
+    )}
+  </body>
+</html>

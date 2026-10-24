@@ -1,0 +1,23 @@
+---
+// 作品カード。画像モードかつ画像がある作品は画像、それ以外はタイトル文字のカードで表示する。
+import { cardColors, cardFontSize } from '../lib/colors';
+import type { AnimeCardData } from '../lib/data';
+
+interface Props {
+  anime: AnimeCardData;
+  size?: 'sm' | 'md';
+  eager?: boolean;
+}
+const { anime, size = 'md', eager = false } = Astro.props;
+const { bg, fg } = cardColors(anime);
+const src = anime.image && size === 'md' ? anime.image.replace('-160.webp', '-480.webp') : anime.image;
+---
+{src ? (
+  <div class="acard" title={anime.title}>
+    <img src={src} alt={anime.title} width={size === 'md' ? 160 : 64} height={size === 'md' ? 240 : 96} loading={eager ? 'eager' : 'lazy'} decoding="async" />
+  </div>
+) : (
+  <div class="acard text" title={anime.title} style={`--card-bg:${bg};--card-fg:${fg};--card-fs:${size === 'sm' ? '.6rem' : cardFontSize(anime.title)}`}>
+    <span>{anime.title}</span>
+  </div>
+)}

@@ -1,0 +1,46 @@
+---
+import Base from '../layouts/Base.astro';
+import { CONTACT_EMAIL, OPERATOR_NAME, SITE_NAME } from '../lib/config';
+
+export const prerender = true;
+---
+<Base title="プライバシーポリシー" description={`${SITE_NAME}のプライバシーポリシー`}>
+  <div class="container" style="max-width:760px">
+    <h1>プライバシーポリシー</h1>
+    <p>{OPERATOR_NAME}（以下「運営者」）は、「{SITE_NAME}」（以下「本サービス」）における利用者の情報を次のとおり取り扱います。</p>
+    <h2>1. 取得する情報</h2>
+    <ul>
+      <li>登録時: メールアドレス、Google アカウントの識別子・氏名・プロフィール画像の URL（Google でログインした場合）</li>
+      <li>利用時: 作成したティア表の内容、ログイン状態を保つための Cookie、アクセスログ（IP アドレス、ブラウザの種類など）</li>
+    </ul>
+    <h2>2. 利用目的</h2>
+    <ul>
+      <li>本人確認とログイン状態の維持</li>
+      <li>ティア表の保存・公開と、公開ティア表の集計</li>
+      <li>不正利用の防止、障害対応、サービス改善</li>
+      <li>お問い合わせへの対応</li>
+    </ul>
+    <h2>3. 第三者提供</h2>
+    <p>法令に基づく場合を除き、本人の同意なく個人情報を第三者に提供しません。メールアドレスは公開されません。</p>
+    <h2>4. 外部送信について（電気通信事業法に基づく公表事項）</h2>
+    <p>本サービスでは、次の外部サービスに利用者の情報が送信されることがあります。</p>
+    <table class="stats-table">
+      <thead><tr><th>送信先</th><th>送信される情報</th><th>目的</th></tr></thead>
+      <tbody>
+        <tr><td>Cloudflare, Inc.</td><td>IP アドレス、アクセス情報、ボット判定用の情報</td><td>サイトの配信・セキュリティ（Cloudflare Turnstile を含む）</td></tr>
+        <tr><td>Google LLC（Google ログイン）</td><td>ログイン時の認可情報</td><td>Google アカウントによる認証</td></tr>
+        <tr><td>Google LLC（Google AdSense）</td><td>閲覧したページの URL、Cookie、広告識別子、IP アドレス等</td><td>広告の配信・効果測定。詳しくは <a href="https://policies.google.com/technologies/ads?hl=ja" rel="noopener">Google の広告に関するポリシー</a>をご覧ください。パーソナライズ広告は <a href="https://adssettings.google.com/" rel="noopener">広告設定</a>で無効にできます。</td></tr>
+        <tr><td>Resend, Inc.</td><td>メールアドレス</td><td>ログインリンクのメール送信</td></tr>
+      </tbody>
+    </table>
+    <h2>5. 保存期間と削除</h2>
+    <p>退会すると、アカウント情報と保存したティア表は削除されます（マイページの「プロフィール設定」から退会できます）。ログイン用のセッション情報は有効期限の経過後に自動で削除します。</p>
+    <h2>6. お問い合わせ</h2>
+    <p>
+      個人情報の開示・訂正・削除などのご請求は
+      {CONTACT_EMAIL ? <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> : <a href="/takedown">お問い合わせフォーム</a>}
+      までご連絡ください。
+    </p>
+    <p class="muted small">制定日: 2026年10月24日</p>
+  </div>
+</Base>
