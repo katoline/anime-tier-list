@@ -4,6 +4,7 @@
 
 | 資料 | 内容 |
 | --- | --- |
+| [plan.md](plan.md) | 最初の計画書（実装前の検討内容と、実装で変えた点） |
 | [requirements.md](requirements.md) | 要件概要（目的、対象、機能・非機能要件、法務上の前提） |
 | [features.md](features.md) | 機能概要（画面ごとの機能、ティア表のルール、集計、認証、共有） |
 | [architecture.md](architecture.md) | 構成（Cloudflare 上の構成、リクエストの流れ、キャッシュ、ディレクトリ） |
