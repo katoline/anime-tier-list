@@ -18,28 +18,28 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@astrojs/cloudflare": "^14.4.6",
-    "@astrojs/react": "^7.1.4",
+    "@astrojs/cloudflare": "^14.4.8",
+    "@astrojs/react": "^7.1.9",
     "@dnd-kit/core": "^6.3.1",
     "@dnd-kit/sortable": "^10.0.0",
     "@dnd-kit/utilities": "^3.2.2",
-    "astro": "^7.4.7",
+    "astro": "^7.4.12",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "workers-og": "^0.0.27"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.12",
-    "@cloudflare/workers-types": "^5.20261031.1",
+    "@cloudflare/workers-types": "^5.20261114.1",
     "@types/node": "^26.6.6",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "aws4fetch": "^1.0.20",
-    "playwright": "^1.65.0",
+    "playwright": "^1.65.1",
     "sharp": "^0.35.5",
     "typescript": "^6.0.3",
     "vitest": "^5.1.0",
-    "wrangler": "^4.156.0"
+    "wrangler": "^4.162.0"
   },
   "private": true,
   "type": "module"
